@@ -2,6 +2,7 @@
 import '../styles/globals.css';
 import UiBar from "../components/uibar.astro"
 import Dock from "../components/dock.astro"
+import {Ellipsis} from "@lucide/astro";
 ---
 
 <style>
@@ -18,20 +19,59 @@ import Dock from "../components/dock.astro"
 .details {
   width: calc(100% - var(--page-padding) * 2);
   height: calc(100% - var(--page-padding) * 2);
-  
+  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpixnio.com%2Ffree-images%2F2019%2F01%2F14%2F2019-01-14-08-17-45.jpg&f=1&nofb=1&ipt=e39a92159444672e4abb102fcafa9fd3db2c6a8607b57a92e6d1b7842249b009");
   background-size: cover;
   
   color: black;
   border-radius: var(--ui-round);
   padding: var(--page-padding);
 }
+
+.icons > * {  
+  padding: 2px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icons > * > * {  
+  border-radius: 8px;
+  transition-duration: 300ms;
+}
+.icons > *:hover > * {
+  scale: 1.2;
+  background-color: rgba(255,255,255,0.2);
+}
+.icons > *::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle; /* alinha com o ícone */
+  height: 20px;
+  width: 1px;
+  background-color: black;
+  color: black;
+  margin-left: 5px;
+}
+.icons > *:last-child::after {
+  content: none;
+  
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+}
+
 </style>
 <div class="ui">
   <UiBar direction="right">
     <div class="details">
       <Dock>
-        <div>
-          Hello world
+        <div class="icons">
+          <div><Ellipsis/></div>
+          <div><Ellipsis/></div>
         </div>
       </Dock>
     </div>
