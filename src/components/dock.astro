@@ -1,0 +1,55 @@
+<style>
+
+.dock {
+  position: fixed;
+  
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* só pra fundo, depois ajusta */
+  background-color: transparent;
+  backdrop-filter: blur(12px) saturation(70%);
+}
+
+.dock-icons {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content:center;
+  gap: 15px;
+  padding: 10px 30px;
+  
+  pointer-events: auto; /* para os ícones serem clicáveis */
+  background-color: rgba(255,255,255,0.0);
+  border-color: rgba(192,192,192,0.9);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: var(--ui-round);
+  backdrop-filter: blur(12px) saturate(0.8);
+
+}
+
+.dock-icons img {
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.dock-icons img:hover {
+  transform: scale(1.2);
+}
+
+</style>
+<div class="dock">
+  <div class="dock-icons">
+    <slot/>
+  </div>
+</div>

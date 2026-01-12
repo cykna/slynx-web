@@ -1,0 +1,41 @@
+---
+import '../styles/globals.css';
+import UiBar from "../components/uibar.astro"
+import Dock from "../components/dock.astro"
+---
+
+<style>
+
+:root {
+  --page-padding: 12px;
+}
+
+.ui {
+  width: 100%;
+  height: 100%;
+}
+
+.details {
+  width: calc(100% - var(--page-padding) * 2);
+  height: calc(100% - var(--page-padding) * 2);
+  
+  background-size: cover;
+  
+  color: black;
+  border-radius: var(--ui-round);
+  padding: var(--page-padding);
+}
+</style>
+<div class="ui">
+  <UiBar direction="right">
+    <div class="details">
+      <Dock>
+        <div>
+          Hello world
+        </div>
+      </Dock>
+    </div>
+  </UiBar/>
+</div>
+
+

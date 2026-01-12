@@ -1,0 +1,69 @@
+---
+import "../styles/globals.css"
+const prop = Astro?.props ?? {direction: "left"};
+---
+<style>
+
+:root {
+  --uibar-width: 20px;
+  --uibar-small-width: 10px;
+}
+
+.uibar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.uibar::before {
+  content: "";
+  position: absolute;
+  border-radius: var(--ui-round);
+  
+  pointer-events: none;
+  z-index: 1;
+}
+
+.inner.top {
+  left: var(--uibar-small-width);
+  top: var(--uibar-width);
+  right: var(--uibar-small-width);
+  bottom: var(--uibar-small-width);
+}
+
+.inner.bottom {
+  left: var(--ui-small-width);
+  top: var(--uibar-small-width);
+  right: var(--uibar-small-width);
+  bottom: var(--uibar-width);
+}
+
+.inner.right {
+  left: var(--uibar-small-width);
+  top: var(--uibar-small-width);
+  right: var(--uibar-width);
+  bottom: var(--uibar-small-width);
+}
+
+.inner {
+  position: absolute;
+  left: var(--uibar-width);
+  top: var(--uibar-small-width);
+  right: var(--uibar-small-width);
+  bottom: var(--uibar-small-width);
+  background-color: red;
+  border-radius: var(--ui-round);
+  z-index: 0;
+}
+
+</style>
+
+
+<div class="uibar">
+  <div class={`inner ${prop.direction}`}>
+    <slot/>
+  </div>
+</div>
