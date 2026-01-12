@@ -1,8 +1,7 @@
 ---
 import '../styles/globals.css';
-import UiBar from "../components/uibar.astro"
-import Dock from "../components/dock.astro"
-import {Ellipsis} from "@lucide/astro";
+import UiBar from "../components/uibar.astro";
+import Dock from "../components/usabledock.astro";
 ---
 
 <style>
@@ -27,52 +26,11 @@ import {Ellipsis} from "@lucide/astro";
   padding: var(--page-padding);
 }
 
-.icons > * {  
-  padding: 2px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.icons > * > * {  
-  border-radius: 8px;
-  transition-duration: 300ms;
-}
-.icons > *:hover > * {
-  scale: 1.2;
-  background-color: rgba(255,255,255,0.2);
-}
-.icons > *::after {
-  content: "";
-  display: inline-block;
-  vertical-align: middle; /* alinha com o ícone */
-  height: 20px;
-  width: 1px;
-  background-color: black;
-  color: black;
-  margin-left: 5px;
-}
-.icons > *:last-child::after {
-  content: none;
-}
-
-.icons {
-  display: flex;
-  flex-direction: row;
-  align-items:center;
-}
-
 </style>
 <div class="ui">
   <UiBar direction="right">
     <div class="details">
-      <Dock>
-        <div class="icons">
-          <div><Ellipsis/></div>
-          <div><Ellipsis/></div>
-        </div>
-      </Dock>
+      <Dock/>
     </div>
     <div slot="icons">
       Eita

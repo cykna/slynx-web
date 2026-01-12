@@ -1,0 +1,51 @@
+---
+import Dock from "./dock.astro";
+import {Ellipsis} from "@lucide/astro";
+---
+<style>
+
+.icons > * {  
+  padding: 2px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icons > * > * {  
+  border-radius: 8px;
+  transition-duration: 300ms;
+}
+.icons > *:hover > * {
+  scale: 1.2;
+  background-color: rgba(255,255,255,0.2);
+}
+.icons > *::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle; /* alinha com o ícone */
+  height: 20px;
+  width: 1px;
+  background-color: black;
+  color: black;
+  margin-left: 5px;
+}
+.icons > *:last-child::after {
+  content: none;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+}
+</style>
+
+<Dock>
+    <div class="icons">
+    <div><Ellipsis/></div>
+    <div><Ellipsis/></div>
+  </div>
+</Dock>
+
+
