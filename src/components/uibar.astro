@@ -5,11 +5,12 @@ const prop = Astro?.props ?? {direction: "left"};
 <style>
 
 :root {
-  --uibar-width: 20px;
+  --uibar-width: 30px;
   --uibar-small-width: 10px;
 }
 
 .uibar {
+  display: flex;
   position: relative;
   width: 100%;
   height: 100%;
@@ -18,16 +19,8 @@ const prop = Astro?.props ?? {direction: "left"};
   overflow: hidden;
 }
 
-.uibar::before {
-  content: "";
-  position: absolute;
-  border-radius: var(--ui-round);
-  
-  pointer-events: none;
-  z-index: 1;
-}
-
 .inner.top {
+  flex-direction: column;
   left: var(--uibar-small-width);
   top: var(--uibar-width);
   right: var(--uibar-small-width);
@@ -35,20 +28,30 @@ const prop = Astro?.props ?? {direction: "left"};
 }
 
 .inner.bottom {
-  left: var(--ui-small-width);
+  flex-direction:column;
+  left: var(--uibar-small-width);
   top: var(--uibar-small-width);
   right: var(--uibar-small-width);
   bottom: var(--uibar-width);
 }
 
 .inner.right {
+  flex-direction: column;
   left: var(--uibar-small-width);
   top: var(--uibar-small-width);
   right: var(--uibar-width);
   bottom: var(--uibar-small-width);
 }
 
+.inner.left {
+  flex-direction: column;
+  left: var(--uibar-width);
+  top: var(--uibar-small-width);
+  right: var(--uibar-small-width);
+  bottom: var(--uibar-small-width);
+}
 .inner {
+  display: flex;
   position: absolute;
   left: var(--uibar-width);
   top: var(--uibar-small-width);
@@ -59,11 +62,28 @@ const prop = Astro?.props ?? {direction: "left"};
   z-index: 0;
 }
 
+.uibar.right {
+  flex-direction: row-reverse;
+}
+.uibar.bottom {
+  flex-direction: column-reverse;
+}
+.uibar.top {
+  flex-direction: column;
+}
+.uibar.left {
+  flex-direction: row;
+}
+.uibar {
+  align-items: center
+}
+
 </style>
 
 
-<div class="uibar">
+<div class=`uibar ${prop.direction}`>
   <div class={`inner ${prop.direction}`}>
-    <slot/>
+    <slot/>  
   </div>
+  <slot name="icons"/>  
 </div>
