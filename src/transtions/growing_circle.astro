@@ -61,7 +61,7 @@ function sleep(amount){
 function applyTheme(target) {
   console.log(localStorage.getItem("theme"));
   const current = target.getAttribute("data-theme") ?? localStorage.getItem("theme");
-  const next = current === "dark" ? "light" : "dark";
+  const next = current === "light" ? "dark" : "light";
   target.setAttribute('data-theme', next);
   localStorage.setItem("theme", next);
 }

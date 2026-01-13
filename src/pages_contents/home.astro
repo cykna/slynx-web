@@ -9,17 +9,71 @@ import Window from "../components/window.astro";
   background-size: cover;  
   color: var(--foreground);
   border-radius: var(--ui-round);
-  padding: var(--page-padding);
+  padding: calc(var(--page-padding) / 1);
+}
+
+.page-windows {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  gap: 8px;
+  position: relative;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
 }
 </style>
 
 <div class="details">
-  <div class="lang-information">
-    <div>
-      <Window title="Seila">
-        Hello world
-      </Window>
-    </div>
+  <div id="page-wins" class="page-windows">
+    <Window title="Seila"></Window>
+    <Window title="Seila"></Window>    
   </div>
-  <Dock/>
+  <Dock/>  
 </div>
+<script>
+const windows = document.getElementById("page-wins");
+function find_index(target, collection){
+  let i = 0;
+  const len = collection.length;
+  while(target !== collection[i])
+    if(i++ >= len) return -1;
+  return i;
+}
+
+const OFFSET_STEP = 8;
+let current_offset = 0;
+
+
+windows.addEventListener("click", e => {
+  const clicked = e.target;
+  const current_window_index = find_index(clicked.closest(".slynx-window"), windows.children);
+  if(current_window_index === -1) return alert("Achei um bug, index invalido");
+  
+  switch(e.target.dataset.action) {
+    case "next":{
+      if(current_window_index === windows.children.length - 1) break;
+      
+      const window = windows.children[current_window_index];
+      const size = window.parentElement.clientWidth;
+      const nextwindow = windows.children[current_window_index+1];
+      current_offset+=size + OFFSET_STEP;
+      
+      nextwindow.style.transform = window.style.transform = `translateX(-${current_offset}px)`;
+      break;
+    }
+    case "prev":{
+      if(current_window_index === 0) break;
+      const window = windows.children[current_window_index];
+      const size = window.parentElement.clientWidth;
+      current_offset -= size + OFFSET_STEP;
+      const nextwindow = windows.children[current_window_index-1];
+      nextwindow.style.transform = window.style.transform = `translateX(${current_offset}px)`;  
+      break;
+    }
+    default: {}
+  };
+});
+</script>

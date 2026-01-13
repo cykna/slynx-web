@@ -1,7 +1,7 @@
 ---
 const {window_id, title} = Astro.props;
 import "../styles/globals.css";
-import {PaintbrushVertical} from "@lucide/astro";
+import {PaintbrushVertical,ChevronRight,ChevronLeft} from "@lucide/astro";
 ---
 <style>
 
@@ -49,21 +49,19 @@ import {PaintbrushVertical} from "@lucide/astro";
   cursor: pointer;
 }
 
-.window-theme-btns > :nth-child(3) {
-  --current-color: var(--foreground);
+.window-theme-btns > :is(:nth-child(3), :nth-child(1)) {
+  --current-color: var(--secondary);
 }
 .window-theme-btns> :nth-child(2) {
   --current-color: var(--primary);
 }
-.window-theme-btns> :nth-child(1) {
-  --current-color: var(--secondary);
-}
 
 .slynx-window {
-
+  box-sizing: border-box;
+  flex: 0 0 auto;
   backdrop-filter: var(--window-effects);
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
   border-style: solid;
   
   padding: var(--window-padding);
@@ -73,7 +71,7 @@ import {PaintbrushVertical} from "@lucide/astro";
   display: flex;
   flex-direction: column;
   padding: 0;
-  overflow: hidden;
+  transition: all 700ms cubic-bezier(0.72,-0.01,0.32,1.05);
 }
 
 .title {
@@ -117,7 +115,9 @@ import {PaintbrushVertical} from "@lucide/astro";
     </div>
     <p class="title">{title}</p>
     <div class="window-theme-btns">
+      <ChevronLeft class="prev" data-action="prev"/>
       <PaintbrushVertical/>
+      <ChevronRight class="next" data-action="next"/>
     </div>
   </div>
   <div class="window-content">
