@@ -27,7 +27,8 @@ import Window from "../components/window.astro";
 <div class="details">
   <div id="page-wins" class="page-windows">
     <Window title="Seila"></Window>
-    <Window title="Seila"></Window>    
+    <Window title="Seila"></Window>
+    <Window title="Seila"></Window>
   </div>
   <Dock/>  
 </div>
@@ -41,7 +42,18 @@ function goto_next_window(index) {
   const window = windows.children[index];
   const nextwindow = windows.children[index+1];
   current_offset += window.clientWidth + OFFSET_STEP;
-  nextwindow.style.transform = window.style.transform = `translateX(-${current_offset}px)`;
+  const width = parseInt(nextwindow.style.width ?? 100);
+  
+  window.style.transform = `translateX(-${current_offset}px)`;
+  if(width < 100) {
+    const containerWidth = windows.clientWidth;
+    const windowWidth = nextwindow.clientWidth;
+    const windowLeft = nextwindow.offsetLeft;
+
+    current_offset = windowLeft - (containerWidth / 2) + (windowWidth / 2);
+    nextwindow.style.transform = `translateX(-${current_offset}px)`;
+  }
+  else nextwindow.style.transform = window.style.transform;
 }
 
 /** Goes to the next window assuming the current one has the provided `index` */
@@ -49,10 +61,10 @@ function goto_previous_window(index) {
   const window = windows.children[index];
   const nextwindow = windows.children[index-1];
   
-  current_offset = Math.max(0, current_offset - (window.clientWidth + OFFSET_STEP + nextwindow.clientWidth));
-  window.style.transform = `translateX(-${current_offset}px)`;
-  nextwindow.style.transform = `translateX(-${Math.max(0,current_offset)}px)`;
+  console.log("before assign:", current_offset, window.clientWidth, nextwindow.clientWidth);
+  current_offset = Math.max(0, current_offset - (window.clientWidth + OFFSET_STEP));
   
+  nextwindow.style.transform = window.style.transform = `translateX(-${current_offset}px)`;
 }
 
 function find_index(target, collection){
