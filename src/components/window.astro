@@ -1,0 +1,126 @@
+---
+const {window_id, title} = Astro.props;
+import "../styles/globals.css";
+import {PaintbrushVertical} from "@lucide/astro";
+---
+<style>
+
+.window-control-btns {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+.window-control-btns > * {
+  width: 16px;
+  height: 16px;
+  border-radius: 24px;
+  cursor: pointer;
+  transition-duration: 300ms;
+  background-color: var(--current-color);
+}
+.window-control-btns > *:hover {
+  scale: 0.9;
+  box-shadow: 0px 0px 8px var(--current-color);
+}
+.window-control-btns > :nth-child(1) {
+  --current-color: var(--foreground);
+}
+.window-control-btns> :nth-child(2) {
+  --current-color: var(--primary);
+}
+.window-control-btns> :nth-child(3) {
+  --current-color: var(--secondary);
+}
+
+
+.window-theme-btns > *:hover {
+  scale: 0.9;
+  box-shadow: 0px 0px 8px var(--foreground);
+}
+
+.window-theme-btns > * {
+  color: var(--current-color);
+  background-color: var(--foreground);
+  padding: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 24px;
+  transition-duration: 300ms;
+  cursor: pointer;
+}
+
+.window-theme-btns > :nth-child(3) {
+  --current-color: var(--foreground);
+}
+.window-theme-btns> :nth-child(2) {
+  --current-color: var(--primary);
+}
+.window-theme-btns> :nth-child(1) {
+  --current-color: var(--secondary);
+}
+
+.slynx-window {
+
+  backdrop-filter: var(--window-effects);
+  width: 400px;
+  height: 400px;
+  border-style: solid;
+  
+  padding: var(--window-padding);
+  border-width: var(--window-border);
+  border-color: var(--primary);
+  border-radius: var(--window-round);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.title {
+  padding: 0;
+  margin: 0;
+  color: var(--foreground);
+}
+
+.window-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px; 
+  margin: 0;
+  
+}
+.window-content {
+  --border-color: var(--primary);
+  --content-padding:4px;
+  --size: calc(100% - var(--content-padding) * 5);
+  
+  width: var(--size);
+  height: var(--size);
+  border-width: var(--window-border);
+  border-style: solid;
+  border-radius: calc(var(--window-round) - var(--content-padding));
+  border-color: var(--border-color);
+  margin: var(--content-padding);
+  padding: var(--content-padding);
+}
+
+</style>
+
+<div id={window_id} class="slynx-window">  
+  <div class="window-title">
+    <div class="window-control-btns">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <p class="title">{title}</p>
+    <div class="window-theme-btns">
+      <PaintbrushVertical/>
+    </div>
+  </div>
+  <div class="window-content">
+    <slot/>
+  </div>
+</div>

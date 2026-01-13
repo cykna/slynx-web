@@ -1,3 +1,25 @@
+---
+import Dock from "../components/usabledock.astro";
+import Window from "../components/window.astro";
+---
+<style>
+.details {
+  width: calc(100% - var(--page-padding) * 2);
+  height: calc(100% - var(--page-padding) * 2);
+  background-size: cover;  
+  color: var(--foreground);
+  border-radius: var(--ui-round);
+  padding: var(--page-padding);
+}
+</style>
+
 <div class="details">
+  <div class="lang-information">
+    <div>
+      <Window title="Seila">
+        Hello world
+      </Window>
+    </div>
+  </div>
   <Dock/>
 </div>

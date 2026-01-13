@@ -1,8 +1,9 @@
 ---
 import '../styles/globals.css';
 import UiBar from "../components/uibar.astro";
-import Dock from "../components/usabledock.astro";
 import {Moon} from "@lucide/astro";
+import GrowingCircle from "../transtions/growing_circle.astro"
+import Home from "../pages_contents/home.astro";
 ---
 
 <style>
@@ -16,15 +17,6 @@ import {Moon} from "@lucide/astro";
   height: 100%;
 }
 
-.details {
-  width: calc(100% - var(--page-padding) * 2);
-  height: calc(100% - var(--page-padding) * 2);
-  background-size: cover;
-  
-  color: black;
-  border-radius: var(--ui-round);
-  padding: var(--page-padding);
-}
 
 .header {
   display: flex;
@@ -51,85 +43,16 @@ import {Moon} from "@lucide/astro";
 
 
 </style>
-<style is:global>
-#overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  clip-path: circle(0% at var(--cx) var(--cy));
-  animation-name: getHuge;
-  animation-duration: 3s;
-  --target: var(--foreground);
-}
-
-@keyframes getHuge {
-  0% {
-    clip-path: circle(0px at var(--cx) var(--cy));
-    background: var(--target);
-  }
-  50% {
-    opacity: 1;
-    clip-path: circle(100vmax at var(--cx) var(--cy));
-    background: var(--target);
-    width: 100vw;
-    height: 100vh;
-  }
-  to {
-    opacity: 0;
-    clip-path: circle(100vmax at var(--cx) var(--cy));
-    background: var(--target);
-    width: 100vw;
-    height: 100vh;
-    --target:var(--background);
-  }
-}
-</style>
 <div class="ui">
   <UiBar direction="top">
-    <div class="details">
-      <Dock/>
-    </div>
+    <Home/>
     <div slot="icons" class="header">
-      <Moon id="theme-toggle"/>
+      <GrowingCircle initiator_id="theme-switcher"><Moon/></GrowingCircle>
       <p>Abacate</p>
       <p>Melancia</p>
     </div>   
   </UiBar/>
 </div>
-<script is:inline>
-const toggler = document.getElementById("theme-toggle");
 
-function sleep(amount){
-  return new Promise(ok => setTimeout(ok, amount));
-}
-
-function applyTheme(target) {
-  console.log(localStorage.getItem("theme"));
-  const current = target.getAttribute("data-theme") ?? localStorage.getItem("theme");
-  const next = current === "dark" ? "light" : "dark";
-  target.setAttribute('data-theme', next);
-  localStorage.setItem("theme", next);
-}
-
-toggler.addEventListener("click", async _ => {
-  const overlay = document.createElement("div");
-  
-  const rect = toggler.getBoundingClientRect();
-  const x = rect.left + rect.width * 0.5;
-  const y = rect.top + rect.height * 0.5;
-  overlay.id = "overlay";
-  overlay.style.setProperty("--cx", `${x}px`);
-  overlay.style.setProperty("--cy", `${y}px`);
-
-  document.body.appendChild(overlay);
-  const duration = 3000;
-  const applyTimeout = 900;
-  await sleep(applyTimeout);
-  applyTheme(document.firstElementChild);
-  await sleep(duration - applyTimeout);
-  overlay.remove();
-});
-</script>
 
 
