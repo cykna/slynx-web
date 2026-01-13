@@ -13,7 +13,6 @@
   align-items: center;
   pointer-events: none; /* só pra fundo, depois ajusta */
   background-color: transparent;
-  backdrop-filter: blur(12px) saturation(70%);
 }
 
 .dock-icons {
@@ -26,8 +25,7 @@
   padding: 10px 30px;
   
   pointer-events: auto; /* para os ícones serem clicáveis */
-  background-color: rgba(255,255,255,0.0);
-  border-color: rgba(192,192,192,0.9);
+  border-color: var(--primary);
   border-style: solid;
   border-width: 1px;
   border-radius: var(--ui-round);
@@ -38,7 +36,7 @@
 .dock-icons > * {
   width: 32px;
   height: 32px;
-  border-radius: 12px;
+  border-radius: var(--button-round);
   cursor: pointer;
   transition: transform 0.2s ease;
 }

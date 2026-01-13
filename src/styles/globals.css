@@ -1,8 +1,40 @@
-
 :root {
+  --button-round: 12px;
   --ui-round: 20px;
+  --uibar-width: 30px;
+  --uibar-small-width: 10px;
+}
+@media(prefers-color-scheme: light){
+  :root {
+    /* colors */
+    --foreground: #011627;
+    --background: #fdfffc;
+    --primary: #41ead4;
+    --secundary: #F71735;
+  }
 }
 
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) {
+    --background: #011627;  /* fundo escuro */
+    --foreground: #fdfffc;  /* texto claro */
+    --primary: #4fffe6;
+    --secondary: #ff3b5c;
+  }
+}
+html[data-theme="light"] {
+  --background: #fdfffc;
+  --foreground: #011627;
+  --primary: #41ead4;
+  --secondary: #F71735;
+}
+
+html[data-theme="dark"] {
+  --background: #011627;
+  --foreground: #fdfffc;
+  --primary: #4fffe6;
+  --secondary: #ff3b5c;
+}
 
 body, html {
   padding: 0;
@@ -10,3 +42,6 @@ body, html {
   width: 100%;
   height: 100%;
 }
+
+
+
