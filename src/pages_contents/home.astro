@@ -21,8 +21,6 @@ import Window from "../components/window.astro";
   scroll-behavior: smooth;
   gap: 8px;
   position: relative;
-  transition-duration: 300ms;
-  transition-timing-function: ease-in-out;
 }
 </style>
 
@@ -35,6 +33,28 @@ import Window from "../components/window.astro";
 </div>
 <script>
 const windows = document.getElementById("page-wins");
+const OFFSET_STEP = 12;
+let current_offset = 0;
+
+/** Goes to the next window assuming the current one has the provided `index` */
+function goto_next_window(index) {
+  const window = windows.children[index];
+  const nextwindow = windows.children[index+1];
+  current_offset += window.clientWidth + OFFSET_STEP;
+  nextwindow.style.transform = window.style.transform = `translateX(-${current_offset}px)`;
+}
+
+/** Goes to the next window assuming the current one has the provided `index` */
+function goto_previous_window(index) {
+  const window = windows.children[index];
+  const nextwindow = windows.children[index-1];
+  
+  current_offset = Math.max(0, current_offset - (window.clientWidth + OFFSET_STEP + nextwindow.clientWidth));
+  window.style.transform = `translateX(-${current_offset}px)`;
+  nextwindow.style.transform = `translateX(-${Math.max(0,current_offset)}px)`;
+  
+}
+
 function find_index(target, collection){
   let i = 0;
   const len = collection.length;
@@ -43,34 +63,34 @@ function find_index(target, collection){
   return i;
 }
 
-const OFFSET_STEP = 8;
-let current_offset = 0;
-
 
 windows.addEventListener("click", e => {
   const clicked = e.target;
   const current_window_index = find_index(clicked.closest(".slynx-window"), windows.children);
+  const current_window = windows.children[current_window_index];
   if(current_window_index === -1) return alert("Achei um bug, index invalido");
   
   switch(e.target.dataset.action) {
     case "next":{
       if(current_window_index === windows.children.length - 1) break;
-      
-      const window = windows.children[current_window_index];
-      const size = window.parentElement.clientWidth;
-      const nextwindow = windows.children[current_window_index+1];
-      current_offset+=size + OFFSET_STEP;
-      
-      nextwindow.style.transform = window.style.transform = `translateX(-${current_offset}px)`;
+      goto_next_window(current_window_index);
       break;
     }
     case "prev":{
+      
       if(current_window_index === 0) break;
-      const window = windows.children[current_window_index];
-      const size = window.parentElement.clientWidth;
-      current_offset -= size + OFFSET_STEP;
-      const nextwindow = windows.children[current_window_index-1];
-      nextwindow.style.transform = window.style.transform = `translateX(${current_offset}px)`;  
+      goto_previous_window(current_window_index);
+      break;
+    }
+    case "decrease":{
+      const window_style = current_window.style;
+      window_style.width = `${(parseInt(window_style.width) || 100)-10}%`;
+      if(parseInt(window_style.width) === 0) window_style.width = '100%';
+      break;
+    }
+    case "increase":{
+      const window_style = current_window.style;
+      window_style.width = `${(parseInt(window_style.width) || 100)+10}%`;
       break;
     }
     default: {}
