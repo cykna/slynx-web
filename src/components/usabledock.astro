@@ -1,8 +1,9 @@
 ---
 import Dock from "./dock.astro";
-import {Ellipsis} from "@lucide/astro";
+import {Ellipsis,BookText,Github,Download,Hammer} from "@lucide/astro";
 ---
 <style>
+
 
 .icons > * {  
   padding: 2px;
@@ -12,24 +13,17 @@ import {Ellipsis} from "@lucide/astro";
   align-items: center;
 }
 
-.icons > * > * {  
+.icons > * > * {
+  padding: 2px;
   border-radius: 8px;
   transition-duration: 300ms;
+  color: var(--foreground);
 }
 .icons > *:hover > * {
   scale: 1.2;
-  background-color: rgba(255,255,255,0.2);
+  background-color: var(--background);
 }
-.icons > *::after {
-  content: "";
-  display: inline-block;
-  vertical-align: middle; /* alinha com o ícone */
-  height: 20px;
-  width: 1px;
-  background-color: black;
-  color: black;
-  margin-left: 5px;
-}
+
 .icons > *:last-child::after {
   content: none;
 }
@@ -38,14 +32,27 @@ import {Ellipsis} from "@lucide/astro";
   display: flex;
   flex-direction: row;
   align-items:center;
+  gap: 16px;
+  color: var(--foreground);
 }
+
+a{
+  color: var(--background);
+}
+button {
+  background-color: transparent;
+  border: 0;
+}
+
 </style>
 
 <Dock>
     <div class="icons">
-    <div><Ellipsis/></div>
-    <div><Ellipsis/></div>
-  </div>
+      <button><Ellipsis/></button>
+      <a href="/doc"><BookText/></a>      
+      <a href="https://github.com/cykna/slynx"><Github/></a>
+      <a href="/download"><Download/><a/>      
+    </div>
 </Dock>
 
 

@@ -5,6 +5,7 @@
     "": {
       "name": "slynx-web",
       "dependencies": {
+        "@assortment/darkmodejs": "^2.0.0",
         "@astrojs/starlight": "^0.37.2",
         "@lucide/astro": "^0.562.0",
         "astro": "^5.6.1",
@@ -13,6 +14,8 @@
     },
   },
   "packages": {
+    "@assortment/darkmodejs": ["@assortment/darkmodejs@2.0.0", "", {}, "sha512-1gs59xKJJlAu6rGpHJADbwzWRzyDEZ22hEmDRS1K769TYcKqImHgN9Ekukd9tgo6YPAcI44tByC0mYZWfvYEsg=="],
+
     "@astrojs/compiler": ["@astrojs/compiler@2.13.0", "", {}, "sha512-mqVORhUJViA28fwHYaWmsXSzLO9osbdZ5ImUfxBarqsYdMlPbqAqGJCxsNzvppp1BEzc1mJNjOVvQqeDN8Vspw=="],
 
     "@astrojs/internal-helpers": ["@astrojs/internal-helpers@0.7.5", "", {}, "sha512-vreGnYSSKhAjFJCWAwe/CNhONvoc5lokxtRoZims+0wa3KbHBdPHSSthJsKxPd8d/aic6lWKpRTYGY/hsgK6EA=="],
