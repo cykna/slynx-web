@@ -14,12 +14,12 @@ interface WindowArgs {
 
 export default function Window(args: WindowArgs){
   const [width, s_width] = useState(100);
-  return <div id={args.window_id} className="slynx-window">
+  return <div id={args.window_id} className="slynx-window" style={{width:width+"%"}}>
     <div className="window-title">
       <div className="window-control-btns">
-        <div data-action="increase"></div>
+        <div onClick={()=>{s_width(width+10)}}></div>
         <div></div>
-        <div data-action="decrease"></div>
+        <div onClick={()=>{if(width <= 10) s_width(100); else s_width(width-10)}}></div>
       </div>
       <p className="title">{args.title}</p> 
       <div className="window-theme-btns">
