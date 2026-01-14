@@ -1,9 +1,3 @@
----
-const {window_id, title} = Astro.props;
-import "../styles/globals.css";
-import {PaintbrushVertical,ChevronRight,ChevronLeft} from "@lucide/astro";
----
-<style>
 
 .window-control-btns {
   display: flex;
@@ -103,24 +97,3 @@ import {PaintbrushVertical,ChevronRight,ChevronLeft} from "@lucide/astro";
   margin: var(--content-padding);
   padding: var(--content-padding);
 }
-
-</style>
-
-<div id={window_id} class="slynx-window">  
-  <div class="window-title">
-    <div class="window-control-btns">
-      <div data-action="increase"></div>
-      <div></div>
-      <div data-action="decrease"></div>
-    </div>
-    <p class="title">{title}</p>
-    <div class="window-theme-btns">
-      <ChevronLeft class="prev" data-action="prev"/>
-      <PaintbrushVertical/>
-      <ChevronRight class="next" data-action="next"/>
-    </div>
-  </div>
-  <div class="window-content">
-    <slot/>
-  </div>
-</div>

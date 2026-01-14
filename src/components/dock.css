@@ -1,0 +1,30 @@
+.dock {
+   position: fixed; 
+   bottom: 20px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: fit-content;
+  
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   pointer-events: none; /* só pra fundo, depois ajusta */
+   background-color: transparent;
+}
+
+.dock-icons {
+   position: relative;
+   display: flex;
+   flex-direction: row;
+   align-items:center;
+   justify-content:center;
+   gap: 15px;
+   padding: 10px 30px;
+  
+   pointer-events: auto; /* para os ícones serem clicáveis */
+   border-color: var(--primary);
+   border-style: solid;
+   border-width: 1px;
+   border-radius: var(--ui-round);
+   backdrop-filter: blur(12px) saturate(0.8);
+}

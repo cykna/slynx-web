@@ -1,6 +1,6 @@
 ---
 import Dock from "../components/usabledock.astro";
-import Window from "../components/window.astro";
+import Window from "../components/window.tsx";
 ---
 <style>
 .details {
@@ -61,7 +61,6 @@ function goto_previous_window(index) {
   const window = windows.children[index];
   const nextwindow = windows.children[index-1];
   
-  console.log("before assign:", current_offset, window.clientWidth, nextwindow.clientWidth);
   current_offset = Math.max(0, current_offset - (window.clientWidth + OFFSET_STEP));
   
   nextwindow.style.transform = window.style.transform = `translateX(-${current_offset}px)`;

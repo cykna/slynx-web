@@ -1,11 +1,3 @@
----
-import "../styles/globals.css"
-const prop = Astro?.props ?? {direction: "left"};
----
-<style>
-
-
-
 .uibar {
   display: flex;
   position: relative;
@@ -88,14 +80,3 @@ const prop = Astro?.props ?? {direction: "left"};
 .uibar {
   align-items: center
 }
-
-
-</style>
-
-
-<div class=`uibar ${prop.direction}`>
-  <div class={`inner ${prop.direction}`}>
-    <slot/>  
-  </div>
-  <slot name="icons"/>  
-</div>
