@@ -1,7 +1,7 @@
 import "./home.css";
 import { useState, useRef } from "react";
 import Window from "../components/window.tsx";
-
+import Contents from "../components/contents.tsx";
 
 
 function calculate_offset(next: HTMLElement) {
@@ -12,9 +12,14 @@ function calculate_offset(next: HTMLElement) {
 
 
 export default function Home() {
+  const [windowNames, setWindows] = useState(["Seila", "Maria", "Se vira"]);
   const [offset, setOffset] = useState(0);
   const [active_window, setIndex] = useState(0);
   const ref = useRef<HTMLElement>(null);
+
+  function update_children(offset: number) {
+    for (const child of ref.current!.children) (child as HTMLElement).style.transform = `translateX(${-offset}px)`;
+  }
 
   const handleNext = (index: number) => {
 
@@ -24,11 +29,8 @@ export default function Home() {
     const next = ref.current.children[index + 1] as HTMLElement;
 
     const newoffset = calculate_offset(next);
-
     setOffset(newoffset);
-
-    for (const child of ref.current.children) (child as HTMLElement).style.transform = `translateX(-${newoffset}px)`;
-
+    update_children(newoffset);
   };
 
   const handlePrev = (index: number) => {
@@ -41,23 +43,26 @@ export default function Home() {
     const newoffset = calculate_offset(next);
 
     setOffset(newoffset);
-    for (const child of ref.current.children) (child as HTMLElement).style.transform = `translateX(${-newoffset}px)`;
+    update_children(newoffset);
 
   };
 
   return (
     <div className="details">
       <div id="page-wins" className="page-windows" ref={ref}>
-        {[0, 1, 2].map(i => (
+        {windowNames.map((name, index) => (
           <Window
-            key={i}
-            title="Seila"
-            index={i}
+            window_id={`win-${name}-${index}`}
+            key={name}
+            title={name}
             offset={offset}
-            next={() => handleNext(i)}
-            prev={() => handlePrev(i)}
-          />
+            next={() => handleNext(index)}
+            prev={() => handlePrev(index)}
+          >Gay</Window>
         ))}
+      </div>
+      <div>
+        <Contents />
       </div>
     </div>
   );

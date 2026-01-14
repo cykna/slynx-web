@@ -42,8 +42,6 @@
 .inner {
     display: flex;
     position: absolute;
-    background-image: var(--wallpaper);
-    background-size: cover;
     left: var(--uibar-width);
     top: var(--uibar-small-width);
     right: var(--uibar-small-width);
