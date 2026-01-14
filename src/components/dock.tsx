@@ -1,8 +1,6 @@
-import React from "@astrojs/react";
 import "./dock.css";
 
-
-export default function Dock({children}: {children: React.ReactNode}) {
+export default function Dock({children}: {children: ReactNode}) {
   return <div className="dock">
     <div className="dock-icons">
       {children} 

@@ -1,31 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "slynx-web",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@assortment/darkmodejs": "^2.0.0",
-    "@astrojs/react": "^4.4.2",
-    "@astrojs/starlight": "^0.37.2",
-    "@lucide/astro": "^0.562.0",
-    "@types/react": "^19.2.8",
-    "@types/react-dom": "^19.2.3",
-    "astro": "^5.6.1",
-    "lucide-react": "^0.562.0",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "sharp": "^0.34.2"
-  }
-}
-=======
-  "name": "slynx-web2",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -58,4 +32,3 @@
     "vite": "npm:rolldown-vite@7.2.5"
   }
 }
->>>>>>> 809197958e6d6e91a8993db25f78958949f9f400
