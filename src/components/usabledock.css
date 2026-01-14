@@ -1,6 +1,6 @@
 ---
-import Dock from "./Dock.tsx";
-import {Ellipsis,BookText,Github,Download,Hammer} from "@lucide/astro";
+import { Dock } from "./Dock.tsx";
+import {Ellipsis, BookText, Github, Download, Hammer} from "@lucide/astro";
 ---
 <style>
 
@@ -43,16 +43,3 @@ button {
   background-color: transparent;
   border: 0;
 }
-
-</style>
-
-<Dock>
-    <div class="icons">
-      <button><Ellipsis/></button>
-      <a href="/doc"><BookText/></a>      
-      <a href="https://github.com/cykna/slynx"><Github/></a>
-      <a href="/download"><Download/><a/>      
-    </div>
-</Dock>
-
-
