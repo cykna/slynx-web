@@ -1,0 +1,29 @@
+
+.ui {
+  width: 100%;
+  height: 100%;
+}
+
+
+.header {
+  display: flex;
+  flex-direction: var(--header-direction);
+  align-items: center;
+  justify-content: center;
+  height: var(--header-height);
+  width: var(--header-width);
+  color: var(--secondary);
+  gap: 16px;
+}
+
+.header > * {
+  transition-duration: 300ms;
+  cursor: pointer;
+  border-radius: var(--button-round);
+  padding: 2px;
+}
+
+.header > *:hover {
+  scale: 1.2;
+  background-color: var(--background);
+}
