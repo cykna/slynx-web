@@ -59,9 +59,10 @@ function sleep(amount){
 }
 
 function applyTheme(target) {
-  console.log(localStorage.getItem("theme"));
-  const current = target.getAttribute("data-theme") ?? localStorage.getItem("theme");
+  const current_theme = target.getAttribute("data-theme") ?? localStorage.getItem("theme"); 
+  const current = current_theme == void(0) ? window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light" : current_theme;
   const next = current === "light" ? "dark" : "light";
+  console.log("next", next, "curr", current);
   target.setAttribute('data-theme', next);
   localStorage.setItem("theme", next);
 }
