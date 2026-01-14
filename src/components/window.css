@@ -97,3 +97,11 @@
   margin: var(--content-padding);
   padding: var(--content-padding);
 }
+.slynx-window.removing {
+  animation-name: remove;
+  animation-duration:1s;
+}
+@keyframes remove {
+  from {opacity: 1.0; scale: 1.0};
+  to {scale: 0; opacity: 0.0}
+}

@@ -1,13 +1,14 @@
 :root {
-  --button-round: 12px;
-  --ui-round: 20px;
-  --uibar-width: 30px;
-  --uibar-small-width: 10px;
-  --window-round: 20px;
-  --window-blur: 40px;
-  --window-border: 2px;
-  --window-padding: 4px;
-  --window-effects: blur(var(--window-blur)) sepia(0.4) brightness(0.5);
+    --page-padding: 8px;
+    --button-round: 12px;
+    --ui-round: 20px;
+    --uibar-width: 30px;
+    --uibar-small-width: 10px;
+    --window-round: 20px;
+    --window-blur: 40px;
+    --window-border: 2px;
+    --window-padding: 4px;
+    --window-effects: blur(var(--window-blur)) sepia(0.4) brightness(0.5);
 }
 @media(prefers-color-scheme: light){
   :root {
@@ -45,15 +46,9 @@ html[data-theme="dark"] {
   --wallpaper: url("https://images2.alphacoders.com/807/thumb-1920-807176.jpg");
 }
 
-body, html {
+#root, body, html {
   padding: 0;
   margin: 0;
   width: 100%;
   height: 100%;
-}
-#root {
-    margin: 0px;
-    padding: 0;
-    width: 100%;
-    height: 100%;
 }
