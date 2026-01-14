@@ -10,7 +10,15 @@ export default function Home() {
   const ref = useRef<HTMLElement>(null);
     const handleNext = (index: number) => {
     if (!ref.current || ref.current.children.length-1 === index) return;
-    const newoffset = offset + ref.current.children[index].clientWidth + OFFSET_STEP; 
+    const current = ref.current.children[index];
+    const next = ref.current.children[index+1];
+    let newoffset; 
+    if(next.style.width === "100%") newoffset = offset + current.clientWidth + OFFSET_STEP;
+    else {
+      const width = parseInt(next.style.width);
+      const multiplier = (100 - width) / width * 0.5;
+      newoffset = offset + current.clientWidth + OFFSET_STEP - (next.clientWidth * multiplier);
+    }
     setOffset(newoffset);
     for(const child of ref.current.children) child.style.transform = `translateX(-${newoffset}px)`;
   };
