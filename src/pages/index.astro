@@ -2,7 +2,7 @@
 import '../styles/globals.css';
 import UiBar from "../components/uibar.tsx";
 import {Moon} from "@lucide/astro";
-import GrowingCircle from "../transtions/growing_circle.astro"
+import ThemeSwitcher from "../transtions/theme_switcher.astro"
 import Home from "../pages_contents/home.astro";
 ---
 
@@ -47,9 +47,9 @@ import Home from "../pages_contents/home.astro";
   <UiBar direction="top">
     <Home/>
     <div slot="icons" class="header">
-      <GrowingCircle initiator_id="theme-switcher"><Moon/></GrowingCircle>
-      <p>Abacate</p>
-      <p>Melancia</p>
+        <ThemeSwitcher initiator_id="theme-switcher"><Moon/></ThemeSwitcher>
+        <p>Abacate</p>
+        <p>Melancia</p>
     </div>   
   </UiBar/>
 </div>
