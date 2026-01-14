@@ -1,17 +1,26 @@
 import "./theme_switcher.css";
-import {useRef, ReactNode} from "react";
+import { useRef } from "react";
 
 interface ThemeSwitcherArgs {
-  children: ReactNode;
+  children: React.ReactNode;
   initiator_id: string;
 }
 
-export default function ThemeSwitcher({children, initiator_id}: ThemeSwitcherArgs){
-  const wrapper = useRef(null);
-  async function handleClick(){
+function applyTheme(target: HTMLElement) {
+  const current_theme = target.getAttribute("data-theme") ?? localStorage.getItem("theme");
+  const current = current_theme == void (0) ? window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light" : current_theme;
+
+  const next = current === "dark" ? "light" : "dark";
+  target.setAttribute('data-theme', next);
+  localStorage.setItem("theme", next);
+}
+
+export default function ThemeSwitcher({ children }: ThemeSwitcherArgs) {
+  const wrapper = useRef<HTMLElement>(null);
+  async function handleClick() {
     const overlay = document.createElement("div");
-    
-    const rect = toggler.getBoundingClientRect();
+
+    const rect = wrapper.current!.getBoundingClientRect();
     const x = rect.left + rect.width * 0.5;
     const y = rect.top + rect.height * 0.5;
     overlay.id = "overlay";
@@ -22,16 +31,16 @@ export default function ThemeSwitcher({children, initiator_id}: ThemeSwitcherArg
     const duration = 3000;
     const applyTimeout = 900;
     await sleep(applyTimeout);
-    applyTheme(wrapper.current);
+    applyTheme(document.firstElementChild as HTMLElement);
     await sleep(duration - applyTimeout);
     overlay.remove();
   }
-  return <div className="anim-wrapper" id={initiator_id} ref={wrapper} onClick={handleClick}>
+  return <div className="anim-wrapper" ref={wrapper} onClick={handleClick}>
     {children}
   </div>
 }
 
-function sleep(amount){
+function sleep(amount: number) {
   return new Promise(ok => setTimeout(ok, amount));
 }
 
