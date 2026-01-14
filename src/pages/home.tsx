@@ -24,9 +24,6 @@ export default function Home() {
   
   return (
     <div className="details">
-      <button onClick={e=>{
-        alert("eu naoguento mais");
-      }}>Funciona pelo amor de deus</button>
       <div id="page-wins" className="page-windows" ref={ref}>
         {[0, 1, 2].map(i => (
           <Window

@@ -4,7 +4,7 @@
   background-size: cover;  
   color: var(--foreground);
   border-radius: var(--ui-round);
-  padding: calc(var(--page-padding) / 1);
+  padding: var(--page-padding);
 }
 
 .page-windows {

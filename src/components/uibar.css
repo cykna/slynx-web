@@ -40,17 +40,17 @@
   bottom: var(--uibar-small-width);
 }
 .inner {
-  display: flex;
-  position: absolute;
-  background-image: var(--wallpaper);
-  background-size: cover;
-  left: var(--uibar-width);
-  top: var(--uibar-small-width);
-  right: var(--uibar-small-width);
-  bottom: var(--uibar-small-width);
-  background-color: var(--background);
-  border-radius: var(--ui-round);
-  z-index: 0;
+    display: flex;
+    position: absolute;
+    background-image: var(--wallpaper);
+    background-size: cover;
+    left: var(--uibar-width);
+    top: var(--uibar-small-width);
+    right: var(--uibar-small-width);
+    bottom: var(--uibar-small-width);
+    background-color: var(--background);
+    border-radius: var(--ui-round);
+    z-index: 0;
 }
 
 .uibar.right {
