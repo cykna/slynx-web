@@ -1,0 +1,82 @@
+.uibar {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--foreground);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.inner.top {
+  flex-direction: column;
+  left: var(--uibar-small-width);
+  top: var(--uibar-width);
+  right: var(--uibar-small-width);
+  bottom: var(--uibar-small-width);
+}
+
+.inner.bottom {
+  flex-direction:column;
+  left: var(--uibar-small-width);
+  top: var(--uibar-small-width);
+  right: var(--uibar-small-width);
+  bottom: var(--uibar-width);
+}
+
+.inner.right {
+  flex-direction: column;
+  left: var(--uibar-small-width);
+  top: var(--uibar-small-width);
+  right: var(--uibar-width);
+  bottom: var(--uibar-small-width);
+}
+
+.inner.left {
+  flex-direction: column;
+  left: var(--uibar-width);
+  top: var(--uibar-small-width);
+  right: var(--uibar-small-width);
+  bottom: var(--uibar-small-width);
+}
+.inner {
+  display: flex;
+  position: absolute;
+  background-image: var(--wallpaper);
+  background-size: cover;
+  left: var(--uibar-width);
+  top: var(--uibar-small-width);
+  right: var(--uibar-small-width);
+  bottom: var(--uibar-small-width);
+  background-color: var(--background);
+  border-radius: var(--ui-round);
+  z-index: 0;
+}
+
+.uibar.right {
+  flex-direction: row-reverse;
+  --header-direction: column;
+  --header-width: calc(var(--page-padding) * 2.5);
+  --header-height: 100%;
+}
+.uibar.bottom {
+  flex-direction: column-reverse;
+  --header-direction: row;
+  --header-width: 100%;
+  --header-height: calc(var(--page-padding) * 2.5);
+}
+.uibar.top {
+  flex-direction: column;
+  --header-direction: row;
+  --header-width: 100%;
+  --header-height: calc(var(--page-padding) * 2.5);
+}
+.uibar.left {
+  flex-direction: row;
+  --header-direction: column;
+  --header-width: calc(var(--page-padding) * 2.5);
+  --header-height: 100%;
+}
+.uibar {
+  align-items: center
+}
