@@ -8,29 +8,19 @@ const OFFSET_STEP = 12;
 export default function Home() {
   const [offset, setOffset] = useState(0);
   const ref = useRef<HTMLElement>(null);
-
-  const handleNext = (index: number) => {
-    console.log("meudeus");
-      if (!ref.current) return;
-  
-      const current =
-        ref.current.children[index] as HTMLElement;
-  
-      setOffset(o =>
-        o + current.clientWidth + OFFSET_STEP
-      );
-    };
-  
-    const handlePrev = (index: number) => {
-      if (!ref.current) return;
-  
-      const current =
-        ref.current.children[index] as HTMLElement;
-  
-      setOffset(o =>
-        Math.max(0, o - (current.clientWidth + OFFSET_STEP))
-      );
-    };
+    const handleNext = (index: number) => {
+    if (!ref.current || ref.current.children.length-1 === index) return;
+    const newoffset = offset + ref.current.children[index].clientWidth + OFFSET_STEP; 
+    setOffset(newoffset);
+    for(const child of ref.current.children) child.style.transform = `translateX(-${newoffset}px)`;
+  };
+  const handlePrev = (index: number) => {
+    if (!ref.current || index === 0) return;
+    const newoffset = offset - (ref.current.children[index].clientWidth + OFFSET_STEP); 
+    console.log(newoffset);
+    setOffset(newoffset);
+    for(const child of ref.current.children) child.style.transform = `translateX(-${newoffset}px)`;
+ };
   
   return (
     <div className="details">
