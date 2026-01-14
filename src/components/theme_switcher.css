@@ -1,0 +1,43 @@
+.anim-wrapper {
+  transition-duration: 300ms;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--ui-round);
+  cursor: pointer;
+}
+.anim-wrapper:hover {
+  background-color: var(--background);
+  scale: 1.2;
+}
+#overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  clip-path: circle(0% at var(--cx) var(--cy));
+  animation-name: getHuge;
+  animation-duration: 3s;
+  --target: var(--foreground);
+}
+
+@keyframes getHuge {
+  0% {
+    clip-path: circle(0px at var(--cx) var(--cy));
+    background: var(--target);
+  }
+  50% {
+    opacity: 1;
+    clip-path: circle(100vmax at var(--cx) var(--cy));
+    background: var(--target);
+    width: 100vw;
+    height: 100vh;
+  }
+  to {
+    opacity: 0;
+    clip-path: circle(100vmax at var(--cx) var(--cy));
+    background: var(--target);
+    width: 100vw;
+    height: 100vh;
+    --target:var(--background);
+  }
+}

@@ -1,0 +1,45 @@
+---
+import { Dock } from "./Dock.tsx";
+import {Ellipsis, BookText, Github, Download, Hammer} from "@lucide/astro";
+---
+<style>
+
+
+.icons > * {  
+  padding: 2px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icons > * > * {
+  padding: 2px;
+  border-radius: 8px;
+  transition-duration: 300ms;
+  color: var(--foreground);
+}
+.icons > *:hover > * {
+  scale: 1.2;
+  background-color: var(--background);
+}
+
+.icons > *:last-child::after {
+  content: none;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  gap: 16px;
+  color: var(--foreground);
+}
+
+a{
+  color: var(--background);
+}
+button {
+  background-color: transparent;
+  border: 0;
+}

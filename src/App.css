@@ -1,0 +1,32 @@
+
+.ui {
+  width: 100%;
+  height: 100%;
+}
+
+
+.bar-header {
+  display: flex;
+  flex-direction: var(--header-direction);
+  align-items: center;
+  justify-content: center;
+  height: var(--header-height);
+  width: var(--header-width);
+  color: var(--secondary);
+  gap: 16px;
+}
+
+.bar-header > * {
+  transition-duration: 300ms;
+  cursor: pointer;
+  border-radius: var(--button-round);
+  padding: 2px;
+}
+
+.bar-header > *:hover {
+  scale: 1.2;
+  background-color: var(--background);
+}
+.bar-header {
+    max-width: calc(var(--uibar-width));
+}

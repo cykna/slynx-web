@@ -1,0 +1,47 @@
+<<<<<<< HEAD
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+=======
+# Logs
+logs
+*.log
+>>>>>>> 809197958e6d6e91a8993db25f78958949f9f400
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+<<<<<<< HEAD
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+=======
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+>>>>>>> 809197958e6d6e91a8993db25f78958949f9f400
