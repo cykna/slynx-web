@@ -1,6 +1,6 @@
 ---
 import Dock from "../components/usabledock.astro";
-import Window from "../components/window.tsx";
+import Window from "../components/Window.tsx";
 ---
 <style>
 .details {
@@ -26,19 +26,20 @@ import Window from "../components/window.tsx";
 
 <div class="details">
   <div id="page-wins" class="page-windows">
-    <Window title="Seila"></Window>
-    <Window title="Seila"></Window>
-    <Window title="Seila"></Window>
+    <Window window_id="janela1" title="Seila"></Window>
+    <Window window_id="janela2" title="Seila"></Window>
+    <Window window_id="janela3" title="Seila"></Window>
   </div>
   <Dock/>  
 </div>
 <script>
+
 const windows = document.getElementById("page-wins");
 const OFFSET_STEP = 12;
 let current_offset = 0;
 
 /** Goes to the next window assuming the current one has the provided `index` */
-function goto_next_window(index) {
+function goto_next_window(index: number) {
   const window = windows.children[index];
   const nextwindow = windows.children[index+1];
   current_offset += window.clientWidth + OFFSET_STEP;
@@ -57,7 +58,7 @@ function goto_next_window(index) {
 }
 
 /** Goes to the next window assuming the current one has the provided `index` */
-function goto_previous_window(index) {
+function goto_previous_window(index: number) {
   const window = windows.children[index];
   const nextwindow = windows.children[index-1];
   
@@ -66,7 +67,7 @@ function goto_previous_window(index) {
   nextwindow.style.transform = window.style.transform = `translateX(-${current_offset}px)`;
 }
 
-function find_index(target, collection){
+function find_index(target: number, collection: string | any[] | HTMLCollection){
   let i = 0;
   const len = collection.length;
   while(target !== collection[i])

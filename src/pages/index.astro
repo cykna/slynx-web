@@ -1,9 +1,10 @@
 ---
 import '../styles/globals.css';
-import UiBar from "../components/uibar.tsx";
+import UiBar from "../components/Uibar.tsx";
 import {Moon} from "@lucide/astro";
 import ThemeSwitcher from "../transtions/theme_switcher.astro"
 import Home from "../pages_contents/home.astro";
+import { BarDirection } from '../components/Uibar.tsx';
 ---
 
 <style>
@@ -44,14 +45,18 @@ import Home from "../pages_contents/home.astro";
 
 </style>
 <div class="ui">
-  <UiBar direction="top">
-    <Home/>
-    <div slot="icons" class="header">
-        <ThemeSwitcher initiator_id="theme-switcher"><Moon/></ThemeSwitcher>
-        <p>Abacate</p>
-        <p>Melancia</p>
-    </div>   
-  </UiBar/>
+  <UiBar 
+  direction={BarDirection.Top} 
+  icons={
+    <>
+      <ThemeSwitcher initiator_id="theme-switcher"><Moon /></ThemeSwitcher>
+      <p>Abacate</p>
+      <p>Melancia</p>
+    </>
+  }
+>
+  <Home />
+</UiBar>
 </div>
 
 
