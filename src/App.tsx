@@ -15,7 +15,7 @@ export default function App() {
           <p>Melancia</p>
         </div>   
       }>
-        <Home/>
+      <Home/>
       </UiBar>
     <Dock/>
   </div>)
