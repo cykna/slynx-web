@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import "./dock.css";
 
 export default function Dock({children}: {children: ReactNode}) {
