@@ -5,7 +5,7 @@
 }
 
 
-.header {
+.bar-header {
   display: flex;
   flex-direction: var(--header-direction);
   align-items: center;
@@ -16,14 +16,17 @@
   gap: 16px;
 }
 
-.header > * {
+.bar-header > * {
   transition-duration: 300ms;
   cursor: pointer;
   border-radius: var(--button-round);
   padding: 2px;
 }
 
-.header > *:hover {
+.bar-header > *:hover {
   scale: 1.2;
   background-color: var(--background);
+}
+.bar-header {
+    max-width: calc(var(--uibar-width));
 }
