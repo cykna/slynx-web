@@ -7,12 +7,15 @@ interface ThemeSwitcherArgs {
 }
 
 function applyTheme(target: HTMLElement) {
+
   const current_theme = target.getAttribute("data-theme") ?? localStorage.getItem("theme");
-  const current = current_theme || window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const current = current_theme ?? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
   const next = current === "dark" ? "light" : "dark";
+
   target.setAttribute('data-theme', next);
   localStorage.setItem("theme", next);
+
 }
 
 export default function ThemeSwitcher({ children }: ThemeSwitcherArgs) {
