@@ -1,9 +1,9 @@
 :root {
   --window-round: 20px;
-  --window-blur: 0px;
+  --window-blur: 48px;
   --window-border: 2px;
   --window-padding: 4px;
-  --window-effects: none;
+  --window-effects: blur(var(--window-blur));
 }
   
 .window-control-btns {
@@ -17,11 +17,11 @@
   border-radius: 24px;
   cursor: pointer;
   transition-duration: 300ms;
-  background-color: var(--current-color);
+  background-color: rgb(var(--current-color));
 }
 .window-control-btns > *:hover {
   scale: 0.9;
-  box-shadow: 0px 0px 8px var(--current-color);
+  box-shadow: 0px 0px 8px rgb(var(--current-color));
 }
 .window-control-btns > :nth-child(1) {
   --current-color: var(--foreground);
@@ -40,8 +40,8 @@
 }
 
 .window-theme-btns > * {
-  color: var(--current-color);
-  background-color: var(--foreground);
+  color: rgb(var(--current-color));
+  background-color: rgb(var(--foreground));
   padding: 2px;
   width: 20px;
   height: 20px;
@@ -67,7 +67,7 @@
   
   padding: var(--window-padding);
   border-width: var(--window-border);
-  border-color: var(--primary);
+  border-color: rgb(var(--primary));
   border-radius: var(--window-round);
   display: flex;
   flex-direction: column;
@@ -78,7 +78,7 @@
 .title {
   padding: 0;
   margin: 0;
-  color: var(--foreground);
+  color: rgb(var(--foreground));
 }
 
 .window-title {
@@ -91,7 +91,7 @@
   
 }
 .window-content {
-  --border-color: var(--primary);
+  --border-color: rgb(var(--primary));
   --content-padding:4px;
   --size: calc(100% - var(--content-padding) * 5);  
   width: var(--size);

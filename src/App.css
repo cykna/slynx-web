@@ -11,7 +11,7 @@
   justify-content: center;
   height: var(--header-height);
   width: var(--header-width);
-  color: var(--secondary);
+  color: rgb(var(--secondary));
   gap: 16px;
 }
 
@@ -24,7 +24,7 @@
 
 .bar-header > *:hover {
   scale: 1.2;
-  background-color: var(--background);
+  background-color: rgb(var(--background));
 }
 .bar-header {
     max-width: calc(var(--uibar-width));

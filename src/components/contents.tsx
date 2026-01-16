@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./contents.css";
 
 export function* generator_of<T, R>(value: Iterable<T, R>) {
@@ -7,10 +7,27 @@ export function* generator_of<T, R>(value: Iterable<T, R>) {
 
 export interface PageContentArg {
   title: string,
-  children: React.ReactNode
+  children: React.ReactNode,
+  click?: () => void,
 }
-export function PageTopic(args: PageContentArg) {
+
+export function Topic(args: PageContentArg) {
   return <div className="topic">
+    <h1 className="data-title">{args.title}</h1>
+    <>{args.children}</>
+  </div>
+}
+
+export function GettingStarted() {
+  return <>
+    <Topic title="Getting started">
+      Bla bla bla bli blo blu
+    </Topic>
+  </>
+}
+
+export function TopicPreview(args: PageContentArg) {
+  return <div className="topic-preview" onClick={args.click}>
     <div><h1 className="topic-title">{args.title}</h1></div>
     <div>{args.children}</div>
   </div>
@@ -19,44 +36,32 @@ export function PageTopic(args: PageContentArg) {
 /** The contents of the language, such as goal, rfc, doc, etc. It's only a bridge to them */
 export default function Contents() {
   const left = useRef<HTMLElement>(null);
-  const right = useRef<HTMLElement>(null);
-  const offset = 128;
-  /*useEffect(() => {
-          setInterval(() => {
-            const numerics = generator_of(left.current?.children).map((v, index) => ({
-              offset: ((Math.random() * offset + Math.random() * offset) | 0) - (offset * 0.5),
-              left: v,
-              right: right.current?.children[index]
-            }));
-            for (const { offset, left, right } of numerics) {
-              left.style.transform = `translateX(${offset}px)`;
-              right.style.transform = `translateX(${-offset}px)`;
-            }
-          }, 2000);
+  const [centerChild, setCenterChild] = useState(null);
 
-  }, []);*/
+
   return <div className="contents">
-    <div className="contents-bg">
+    <div className="contents-left">
       <h1 className="lang-title">Slynx</h1>
       <h2 className="subtitle">Building Your Mom So You Don't Have To</h2>
     </div>
-    <div className="contents-fg">
-      <div className="content left-content" ref={left}>
-        <PageTopic title="TOPICO">Abacate</PageTopic>
-        <PageTopic title="TOPICO">Abacate</PageTopic>
-        <PageTopic title="TOPICO">Gengibre</PageTopic>
-        <PageTopic title="TOPICO">Gergilim</PageTopic>
-      </div>
-      <div className="preview-contents content center-contenr">
-
-      </div>
-      <div className="content right-content" ref={right}>
-        <PageTopic title="TOPICO">Inhonho</PageTopic>
-        <PageTopic title="TOPICO">Xicarinha</PageTopic>
-        <PageTopic title="TOPICO">Las Ocho Chaves</PageTopic>
-        <PageTopic title="TOPICO">Nikolas Maduro</PageTopic>
-      </div>
+    <div className="content-center">
+      {centerChild ? centerChild : false}
     </div>
+    <div className="right-content" ref={left}>
+      <TopicPreview title="About">
+        <p>Check the goals and the language aims on the future</p>
+      </TopicPreview>
 
+      <TopicPreview title="Getting Started" click={() => setCenterChild(GettingStarted())}>
+        <p>Start here with links and basic informations about the language</p>
+      </TopicPreview>
+      <TopicPreview title="Links">
+        <p>Get related links to communities, tooling, and etc</p>
+      </TopicPreview>
+      <TopicPreview title="Changelogs">
+        <p>See the changelogs and what've changed on the lang</p>
+      </TopicPreview>
+      <TopicPreview title="FAQ">Check frequent questions</TopicPreview>
+    </div>
   </div>
 }
