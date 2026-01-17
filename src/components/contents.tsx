@@ -11,7 +11,7 @@ export interface PageContentArgs {
   click?: () => void,
 }
 
-export function Topic(args: PageContentArg) {
+export function Topic(args: PageContentArgs) {
   return <div className="topic">
     <h1 className="data-title">{args.title}</h1>
     <>{args.children}</>
@@ -26,7 +26,7 @@ export function GettingStarted() {
   </>
 }
 
-export function TopicPreview(args: PageContentArg) {
+export function TopicPreview(args: PageContentArgs) {
   return <div className="topic-preview" onClick={args.click}>
     <div><h1 className="topic-title">{args.title}</h1></div>
     <div>{args.children}</div>
