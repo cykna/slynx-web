@@ -4,8 +4,11 @@
     --ui-round: 20px;
     --uibar-width: 30px;
     --uibar-small-width: 10px;
-    --content-padding: 32px;
-    --title-size: 16em;
+    --window-round: 20px;
+    --window-blur: 40px;
+    --window-border: 2px;
+    --window-padding: 4px;
+    --window-effects: blur(var(--window-blur)) sepia(0.4) brightness(0.5);
 }
 @media(prefers-color-scheme: light){
   :root {
