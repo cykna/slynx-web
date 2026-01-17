@@ -3,7 +3,6 @@ import { useRef } from "react";
 
 interface ThemeSwitcherArgs {
   children: React.ReactNode;
-  initiator_id: string;
 }
 
 function applyTheme(target: HTMLElement) {
