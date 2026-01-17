@@ -6,7 +6,7 @@
   cursor: pointer;
 }
 .anim-wrapper:hover {
-  background-color: var(--background);
+  background-color: rgb(var(--background));
   scale: 1.2;
 }
 #overlay {
@@ -17,7 +17,7 @@
   clip-path: circle(0% at var(--cx) var(--cy));
   animation-name: getHuge;
   animation-duration: 3s;
-  --target: var(--foreground);
+  --target: rgb(var(--foreground));
 }
 
 @keyframes getHuge {
@@ -38,6 +38,6 @@
     background: var(--target);
     width: 100vw;
     height: 100vh;
-    --target:var(--background);
+    --target:rgb(var(--background));
   }
 }

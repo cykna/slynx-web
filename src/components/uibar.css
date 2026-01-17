@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: var(--foreground);
+  background-color: rgb(var(--foreground));
   border-radius: 20px;
   overflow: hidden;
 }
@@ -46,9 +46,10 @@
     top: var(--uibar-small-width);
     right: var(--uibar-small-width);
     bottom: var(--uibar-small-width);
-    background-color: var(--background);
+    background-color: rgb(var(--background));
     border-radius: var(--ui-round);
     z-index: 0;
+    padding: var(--uibar-width);
 }
 
 .uibar.right {

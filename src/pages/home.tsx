@@ -2,6 +2,7 @@ import "./home.css";
 import { useState, useRef } from "react";
 import Window from "../components/window.tsx";
 import Contents from "../components/contents.tsx";
+import Previews from "../components/previews.tsx";
 
 
 function calculate_offset(next: HTMLElement) {
@@ -61,6 +62,7 @@ export default function Home() {
           >Gay</Window>
         ))}
       </div>
+      <Previews />
       <div>
         <Contents />
       </div>

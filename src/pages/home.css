@@ -2,8 +2,8 @@
   width: calc(100% - var(--page-padding) * 2);
   height: calc(100% - var(--page-padding) * 2);
   background-size: cover;  
-  color: var(--foreground);
-  border-radius: var(--ui-round);
+  color: rgb(var(--foreground));
+  border-radius: rgb(var(--ui-round));
   padding: var(--page-padding);
   overflow-y: auto;
 }
