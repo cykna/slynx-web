@@ -5,11 +5,11 @@ export function* generator_of<T, R>(value: Iterable<T, R>) {
   yield* value;
 }
 
-export interface PageContentArg {
+export interface PageContentArgs {
   title: string,
   children: React.ReactNode
 }
-export function PageTopic(args: PageContentArg) {
+export function PageTopic(args: PageContentArgs) {
   return <div className="topic">
     <div><h1 className="topic-title">{args.title}</h1></div>
     <div>{args.children}</div>
