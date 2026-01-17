@@ -1,5 +1,5 @@
 .details {
-  width: calc(100% - var(--page-padding) * 2);
+    width: calc(100% - var(--page-padding) * 2);
   height: calc(100% - var(--page-padding) * 2);
   background-size: cover;  
   color: rgb(var(--foreground));
