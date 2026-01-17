@@ -13,7 +13,7 @@ function calculate_offset(next: HTMLElement) {
 
 
 export default function Home() {
-  const [windowNames, setWindows] = useState(["Seila", "Maria", "Se vira"]);
+  const [windowNames, _] = useState(["Seila", "Maria", "Se vira"]);
   const [offset, setOffset] = useState(0);
   const [active_window, setIndex] = useState(0);
   const ref = useRef<HTMLElement>(null);
@@ -50,7 +50,7 @@ export default function Home() {
 
   return (
     <div className="details">
-      <div id="page-wins" className="page-windows" ref={ref}>
+      <div id="page-wins" className="page-windows" ref={ref as any}>
         {windowNames.map((name, index) => (
           <Window
             window_id={`win-${name}-${index}`}

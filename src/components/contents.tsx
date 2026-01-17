@@ -5,7 +5,7 @@ export function* generator_of<T, R>(value: Iterable<T, R>) {
   yield* value;
 }
 
-export interface PageContentArg {
+export interface PageContentArgs {
   title: string,
   children: React.ReactNode,
   click?: () => void,

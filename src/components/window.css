@@ -93,7 +93,8 @@
 .window-content {
   --border-color: rgb(var(--primary));
   --content-padding:4px;
-  --size: calc(100% - var(--content-padding) * 5);  
+  --size: calc(100% - var(--content-padding) * 5);
+  
   width: var(--size);
   height: var(--size);
   border-width: var(--window-border);

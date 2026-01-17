@@ -1,9 +1,3 @@
----
-import { Dock } from "./Dock.tsx";
-import {Ellipsis, BookText, Github, Download, Hammer} from "@lucide/astro";
----
-<style>
-
 
 .icons > * {  
   padding: 2px;

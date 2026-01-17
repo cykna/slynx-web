@@ -3,19 +3,15 @@ import { useRef } from "react";
 
 interface ThemeSwitcherArgs {
   children: React.ReactNode;
-  initiator_id: string;
 }
 
 function applyTheme(target: HTMLElement) {
-
   const current_theme = target.getAttribute("data-theme") ?? localStorage.getItem("theme");
-  const current = current_theme ?? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  const current = current_theme || window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 
   const next = current === "dark" ? "light" : "dark";
-
   target.setAttribute('data-theme', next);
   localStorage.setItem("theme", next);
-
 }
 
 export default function ThemeSwitcher({ children }: ThemeSwitcherArgs) {
@@ -38,7 +34,7 @@ export default function ThemeSwitcher({ children }: ThemeSwitcherArgs) {
     await sleep(duration - applyTimeout);
     overlay.remove();
   }
-  return <div className="anim-wrapper" ref={wrapper} onClick={handleClick}>
+  return <div className="anim-wrapper" ref={wrapper as any} onClick={handleClick}>
     {children}
   </div>
 }
