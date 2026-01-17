@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import "./contents.css";
 
 export function* generator_of<T, R>(value: Iterable<T, R>) {
@@ -36,7 +36,7 @@ export function TopicPreview(args: PageContentArg) {
 /** The contents of the language, such as goal, rfc, doc, etc. It's only a bridge to them */
 export default function Contents() {
   const left = useRef<HTMLElement>(null);
-  const [centerChild, setCenterChild] = useState(null);
+  const [centerChild, setCenterChild] = useState(null as React.ReactNode);
 
 
   return <div className="contents">
@@ -47,7 +47,7 @@ export default function Contents() {
     <div className="content-center">
       {centerChild ? centerChild : false}
     </div>
-    <div className="right-content" ref={left}>
+    <div className="right-content" ref={left as any}>
       <TopicPreview title="About">
         <p>Check the goals and the language aims on the future</p>
       </TopicPreview>
