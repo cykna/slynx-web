@@ -5,13 +5,14 @@
   --window-padding: 4px;
   --window-effects: blur(var(--window-blur));
 }
-  
+
 .window-control-btns {
   display: flex;
   flex-direction: row;
   gap: 3px;
 }
-.window-control-btns > * {
+
+.window-control-btns>* {
   width: 16px;
   height: 16px;
   border-radius: 24px;
@@ -19,27 +20,31 @@
   transition-duration: 300ms;
   background-color: rgb(var(--current-color));
 }
-.window-control-btns > *:hover {
+
+.window-control-btns>*:hover {
   scale: 0.9;
   box-shadow: 0px 0px 8px rgb(var(--current-color));
 }
-.window-control-btns > :nth-child(1) {
+
+.window-control-btns> :nth-child(1) {
   --current-color: var(--foreground);
 }
+
 .window-control-btns> :nth-child(2) {
   --current-color: var(--primary);
 }
+
 .window-control-btns> :nth-child(3) {
   --current-color: var(--secondary);
 }
 
 
-.window-theme-btns > *:hover {
+.window-theme-btns>*:hover {
   scale: 0.9;
   box-shadow: 0px 0px 8px var(--foreground);
 }
 
-.window-theme-btns > * {
+.window-theme-btns>* {
   color: rgb(var(--current-color));
   background-color: rgb(var(--foreground));
   padding: 2px;
@@ -50,9 +55,10 @@
   cursor: pointer;
 }
 
-.window-theme-btns > :is(:nth-child(3), :nth-child(1)) {
+.window-theme-btns> :is(:nth-child(3), :nth-child(1)) {
   --current-color: var(--secondary);
 }
+
 .window-theme-btns> :nth-child(2) {
   --current-color: var(--primary);
 }
@@ -64,7 +70,7 @@
   width: 100%;
   height: 100%;
   border-style: solid;
-  
+
   padding: var(--window-padding);
   border-width: var(--window-border);
   border-color: rgb(var(--primary));
@@ -72,7 +78,7 @@
   display: flex;
   flex-direction: column;
   padding: 0;
-  transition: all 700ms cubic-bezier(0.72,-0.01,0.32,1.0);
+  transition: all 700ms cubic-bezier(0.72, -0.01, 0.32, 1.0);
 }
 
 .title {
@@ -86,15 +92,16 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 6px; 
+  padding: 6px;
   margin: 0;
-  
+
 }
+
 .window-content {
   --border-color: rgb(var(--primary));
-  --content-padding:4px;
+  --content-padding: 4px;
   --size: calc(100% - var(--content-padding) * 5);
-  
+
   width: var(--size);
   height: var(--size);
   border-width: var(--window-border);
@@ -104,11 +111,22 @@
   margin: var(--content-padding);
   padding: var(--content-padding);
 }
+
 .slynx-window.removing {
   animation-name: remove;
-  animation-duration:1s;
+  animation-duration: 1s;
 }
+
 @keyframes remove {
-  from {opacity: 1.0; scale: 1.0};
-  to {scale: 0; opacity: 0.0}
+  from {
+    opacity: 1.0;
+    scale: 1.0
+  }
+
+  ;
+
+  to {
+    scale: 0;
+    opacity: 0.0
+  }
 }
