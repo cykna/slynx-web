@@ -49,19 +49,33 @@ export default function Contents() {
     </div>
     <div className="right-content" ref={left as any}>
       <TopicPreview title="About">
-        <p>Check the goals and the language aims on the future</p>
+        <p>
+          Learn about the language goals, design principles, and long-term vision.
+        </p>
       </TopicPreview>
 
       <TopicPreview title="Getting Started" click={() => setCenterChild(GettingStarted())}>
-        <p>Start here with links and basic informations about the language</p>
+        <p>
+          Start here with installation steps, basic concepts, and your first example.
+        </p>
       </TopicPreview>
+
       <TopicPreview title="Links">
-        <p>Get related links to communities, tooling, and etc</p>
+        <p>
+          Find community channels, tooling, repositories, and related resources.
+        </p>
       </TopicPreview>
+
       <TopicPreview title="Changelogs">
-        <p>See the changelogs and what've changed on the lang</p>
+        <p>
+          Track language updates, new features, and breaking changes over time.
+        </p>
       </TopicPreview>
-      <TopicPreview title="FAQ">Check frequent questions</TopicPreview>
+
+      <TopicPreview title="FAQ">
+        Check common questions about the language and its design.
+      </TopicPreview>
     </div>
+
   </div>
 }

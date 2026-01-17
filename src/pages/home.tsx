@@ -3,7 +3,7 @@ import { useState, useRef } from "react";
 import Window from "../components/window.tsx";
 import Contents from "../components/contents.tsx";
 import Previews from "../components/previews.tsx";
-
+import LangTitle from "../components/title.tsx";
 
 function calculate_offset(next: HTMLElement) {
   const width = parseInt(next.style.width);
@@ -50,6 +50,8 @@ export default function Home() {
 
   return (
     <div className="details">
+      <LangTitle />
+      <Previews />
       <div id="page-wins" className="page-windows" ref={ref as any}>
         {windowNames.map((name, index) => (
           <Window
@@ -62,10 +64,7 @@ export default function Home() {
           >Gay</Window>
         ))}
       </div>
-      <Previews />
-      <div>
-        <Contents />
-      </div>
+      <Contents />
     </div>
   );
 }

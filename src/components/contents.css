@@ -5,6 +5,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 96px;
 }
 
 .content {
@@ -58,7 +60,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  gap: 20px;
+  gap: 8px;
 }
 
 .topic-preview:hover{
