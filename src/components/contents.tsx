@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import "./contents.css";
 
 export function* generator_of<T, R>(value: Iterable<T, R>) {
@@ -20,28 +20,14 @@ export function PageTopic(args: PageContentArg) {
 export default function Contents() {
   const left = useRef<HTMLElement>(null);
   const right = useRef<HTMLElement>(null);
-  const offset = 128;
-  /*useEffect(() => {
-          setInterval(() => {
-            const numerics = generator_of(left.current?.children).map((v, index) => ({
-              offset: ((Math.random() * offset + Math.random() * offset) | 0) - (offset * 0.5),
-              left: v,
-              right: right.current?.children[index]
-            }));
-            for (const { offset, left, right } of numerics) {
-              left.style.transform = `translateX(${offset}px)`;
-              right.style.transform = `translateX(${-offset}px)`;
-            }
-          }, 2000);
 
-  }, []);*/
   return <div className="contents">
     <div className="contents-bg">
       <h1 className="lang-title">Slynx</h1>
       <h2 className="subtitle">Building Your Mom So You Don't Have To</h2>
     </div>
     <div className="contents-fg">
-      <div className="content left-content" ref={left}>
+      <div className="content left-content" ref={left as any}>
         <PageTopic title="TOPICO">Abacate</PageTopic>
         <PageTopic title="TOPICO">Abacate</PageTopic>
         <PageTopic title="TOPICO">Gengibre</PageTopic>
@@ -50,7 +36,7 @@ export default function Contents() {
       <div className="preview-contents content center-contenr">
 
       </div>
-      <div className="content right-content" ref={right}>
+      <div className="content right-content" ref={right as any}>
         <PageTopic title="TOPICO">Inhonho</PageTopic>
         <PageTopic title="TOPICO">Xicarinha</PageTopic>
         <PageTopic title="TOPICO">Las Ocho Chaves</PageTopic>
