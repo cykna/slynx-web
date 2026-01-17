@@ -38,7 +38,7 @@ export default function ThemeSwitcher({ children }: ThemeSwitcherArgs) {
     await sleep(duration - applyTimeout);
     overlay.remove();
   }
-  return <div className="anim-wrapper" ref={wrapper} onClick={handleClick}>
+  return <div className="anim-wrapper" ref={wrapper as any} onClick={handleClick}>
     {children}
   </div>
 }

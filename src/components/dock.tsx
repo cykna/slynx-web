@@ -1,9 +1,9 @@
 import "./dock.css";
 
-export default function Dock({children}: {children: ReactNode}) {
+export default function Dock({ children }: { children: React.ReactNode }) {
   return <div className="dock">
     <div className="dock-icons">
-      {children} 
+      {children}
     </div>
   </div>
 }
