@@ -9,7 +9,7 @@ export default function Previews() {
       (child as HTMLElement).style.setProperty("--first-child-height", (first_child.offsetHeight * 2 || 100) + "px");
     }
   }, []);
-  return <div className="previews" ref={previews}>
+  return <div className="previews" ref={previews as any}>
     <div>
       <h1>Docs</h1>
       <p>Check the documentation of the language</p>
