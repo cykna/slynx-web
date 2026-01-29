@@ -4,7 +4,7 @@ import {BrowserRouter, Routes, Route} from "react-router";
 
 import './index.css'
 import App from './App.tsx'
-import Roadmap from './components/roadmap.tsx'
+import Roadmap from './components/roadmap/roadmap.tsx'
 
 
 createRoot(document.getElementById('root')!).render(

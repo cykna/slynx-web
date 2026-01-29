@@ -1,7 +1,6 @@
 import "./roadmap.css";
-
-
-export default function Roadmap() {
+import { DivContent } from "./divcontent";
+export default function Roadmap() { //create roadmap struct page
     return (
         <div className="struc">
             <header>
@@ -10,8 +9,9 @@ export default function Roadmap() {
             <main>
                 <p>Legend</p>
                 <section>
-                    <p>Language Design</p>
-                    {/*arrow-right*/}
+                    <DivContent 
+                    text="Language Design"
+                    />
                     <div>
                         <ul>
                             <li>[~]Core vision and goals</li>
@@ -29,8 +29,9 @@ export default function Roadmap() {
                     </div>
                 </section>
                 <section>
-                    <p>Front-end Implementation</p>
-                    {/*arrow-right*/}
+                    <DivContent 
+                    text="Front-end Implementation"
+                    />
                     <div>
                         <ul>
                             <li>[~]Lexer (identifiers, keywords, numbers, strings)</li>
@@ -43,8 +44,9 @@ export default function Roadmap() {
                     </div>
                 </section>
                 <section>
-                    <p>Back-end & IR</p>
-                    {/*arrow-right*/}
+                     <DivContent 
+                    text="Back-end & IR"
+                    />
                     <div>
                         <ul>
                             <li>[ ]SSA-based IR design</li>
@@ -56,8 +58,9 @@ export default function Roadmap() {
                     </div>
                 </section>
                 <section>
-                    <p>Tooling</p>
-                    {/*arrow-right*/}
+                     <DivContent 
+                    text="Tooling"
+                    />
                     <div>
                         <ul>
                             <li>[~]CONTRIBUTING.md</li>
