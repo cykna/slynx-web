@@ -9,11 +9,11 @@ export default function Roadmap() { //create roadmap struct page
     return (
         <div className="struc">
             <header>
-                <h1></h1>
+                <h1>Slynx Roadmap</h1>
+                <p>The Slynx Language Roadmap for guiding and tracking language development.</p>
             </header>
+            <p>Legend</p>
             <main>
-
-                <p>Legend</p>
                 <SectionStruct>
                     <DivContent
                         text="Language Design"
