@@ -5,6 +5,7 @@ import Contents from "../components/contents.tsx";
 import Previews from "../components/previews.tsx";
 import LangTitle from "../components/title.tsx";
 
+
 function calculate_offset(next: HTMLElement) {
   const width = parseInt(next.style.width);
   const tocenter_offset = (100 - width) / width;
