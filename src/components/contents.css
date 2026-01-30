@@ -28,6 +28,9 @@
   position: relative;
   color: rgb(var(--primary));
 }
+.content-center {
+  height: 100%;
+}
 
 .lang-title {
   margin: 0;

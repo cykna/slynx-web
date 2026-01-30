@@ -21,7 +21,7 @@ export function Topic(args: PageContentArgs) {
 export function GettingStarted() {
   return <>
     <Topic title="Getting started">
-      Bla bla bla bli blo blu
+      Bla bla bla bli blo
     </Topic>
   </>
 }
