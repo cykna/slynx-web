@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 import PageFrame from "./components/PageFrame"
 
@@ -21,12 +20,10 @@ function Footer(){
 
 export default function Home() {
   return (
-    
     <PageFrame header={<Header/>} footer={<Footer/>}>
       <p>Hello world</p>
       <p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p>
       <p>Hello world</p>
     </PageFrame>
-
   );
 }
