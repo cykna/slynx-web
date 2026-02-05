@@ -19,8 +19,6 @@
 
   --hover-button: #f0f0f0;
   --title-color: #000;
-
-
   /* Frame */
   --frame-width: 24px;
   --frame-small-width: calc(var(--frame-width) / 2);
@@ -29,6 +27,7 @@
 
   /* Footer */
   --footer-padding: var(--frame-padding);
+
 }
 
 body, html {
@@ -52,6 +51,7 @@ h1,h2,h3,h4,h5,h6,p {
     --title-color: #fff;
   }
 }
+
 
 * {
   box-sizing: border-box;
@@ -83,4 +83,3 @@ button {
     }
   }
 }
-
