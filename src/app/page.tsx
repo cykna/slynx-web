@@ -1,33 +1,45 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-import PageFrame from "./components/PageFrame"
+import Link from "next/link";
+import MainStyles from "./page.module.css";
+import Feature from "./components/feature/feature";
+import { Icon } from "@iconify/react";
+import Cards from "./components/cards-container/cards-container";
 
-function Header(){
-  return <div>Berimbau Bau Bau, berilum baubau</div>
-}
 
-function Footer(){
-  return <div>
-    <p>I thought i saw your face today</p>
-    <p>But then i turn my head away</p>
-    <p>And faced against the trees</p>
-    <p>But now it's just a memory</p>
-    <p>As they come... as they come</p>
-    <p>And i couldnt help</p>
-    <p>But fall in love again</p>
-    <p>No I couldnt help but fall in love again</p>
-  </div>
-}
-
+/**
+* The component of the main page of slynx. This is idealized to be shown only on /.
+* This component can be used to nagivate to `/docs/get-started`
+* The component uses the following css variables:
+*   `--foreground`: For the subtitle text
+*   `--hover-color`: As the primary color, due to its saturation
+*   `--primary-base-color-rgb`: For the background of 'get started' button
+*/
 export default function Home() {
   return (
-    
-    <PageFrame header={<Header/>} footer={<Footer/>}>
-      <p>Hello world</p>
-      <p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p>
-      <p>Hello world</p>
-    </PageFrame>
-
+    <main className={MainStyles.main}>
+      <div className={MainStyles.entry}>
+        <h1>Slynx</h1>
+        <h2>Customizable, Fast, && Efficient </h2>
+        <div className={MainStyles.start_now}>
+          <Link href="/docs/get-started">Get Started</Link>
+        </div>
+      </div>
+      <div className={MainStyles.lang_specs}>
+        <h1>What is Slynx?</h1>
+        <div>
+          <Feature title="Performatic Language" icon={<Icon icon="material-symbols:speed" width="48" height="48" className={MainStyles.feature_icon} />} >
+            Hello world
+          </Feature>
+          <Feature title="Performatic Language" icon={<Icon icon="material-symbols:speed" width="48" height="48" className={MainStyles.feature_icon} />} >
+            Hello world
+          </Feature>
+          <Feature title="Performatic Language" icon={<Icon icon="material-symbols:speed" width="48" height="48" className={MainStyles.feature_icon} />} >
+            Hello world
+          </Feature>
+        </div>
+      </div>
+      <div>
+        <Cards />
+      </div>
+    </main>
   );
-
 }
