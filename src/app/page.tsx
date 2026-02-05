@@ -1,11 +1,12 @@
-import Header from "./components/header/header"
-
-import styles from "./page.module.css"
+import Image from "next/image";
+import styles from "./page.module.css";
+import PageFrame from "./components/PageFrame";
 
 export default function Home() {
   return (
-    <>
-      <Header />
-    </>
-  )
+
+    <PageFrame>Hello world</PageFrame>
+
+  );
+
 }

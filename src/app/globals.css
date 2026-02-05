@@ -1,4 +1,5 @@
 :root {
+
   --background: #ffffff;
   --foreground: #171717;
 
@@ -15,11 +16,19 @@
   --hover-color: #01ff72;
 
   --hover-button: #f0f0f0;
+  --title-color: #000;
 
   --frame-width: 24px;
   --frame-small-width: calc(var(--frame-width) / 2);
   --frame-padding: var(--frame-width) var(--frame-small-width) var(--frame-small-width) var(--frame-small-width);
   --frame-round: 16px;
+}
+
+body, html {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: var(--page-padding);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,6 +42,7 @@
     --title-color: #fff;
   }
 }
+<<<<<<< HEAD
 
 * {
   box-sizing: border-box;
@@ -66,3 +76,5 @@ button {
     }
   }
 }
+=======
+>>>>>>> 0fd7e1c (feat: initialized page frame)
