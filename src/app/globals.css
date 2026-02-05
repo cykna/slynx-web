@@ -1,4 +1,5 @@
 :root {
+
   --background: #ffffff;
   --foreground: #171717;
 
@@ -48,6 +49,13 @@ body, html {
   background-color: var(--background);
 }
 
+body, html {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: var(--page-padding);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1b1b1b;
@@ -59,7 +67,6 @@ body, html {
     --title-color: #fff;
   }
 }
-
 
 * {
   box-sizing: border-box;
@@ -91,3 +98,4 @@ button {
     }
   }
 }
+
