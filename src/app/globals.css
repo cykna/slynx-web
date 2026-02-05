@@ -1,4 +1,5 @@
 :root {
+
   --background: #ffffff;
   --foreground: #171717;
 
@@ -17,10 +18,7 @@
   --highlight-color: #00db63;
   --hover-color: #01ff72;
 
-
-
   --hover-button: #f0f0f0;
-  --title-color: #000;
   /* Frame */
   --frame-width: 24px;
   --frame-small-width: calc(var(--frame-width) / 2);
@@ -50,6 +48,13 @@ body, html {
   background-color: var(--background);
 }
 
+body, html {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: var(--page-padding);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1b1b1b;
@@ -61,7 +66,6 @@ body, html {
     --title-color: #fff;
   }
 }
-
 
 * {
   box-sizing: border-box;
@@ -93,3 +97,4 @@ button {
     }
   }
 }
+
