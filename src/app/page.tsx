@@ -21,6 +21,7 @@ function Footer() {
 
 export default function Home() {
   return (
+
     <PageFrame header={<Header />} footer={<Footer />}>
       <MainPage />
     </PageFrame>
