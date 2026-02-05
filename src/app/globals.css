@@ -1,4 +1,5 @@
 :root {
+
   --background: #ffffff;
   --foreground: #171717;
 
@@ -9,7 +10,11 @@
   --highlight-color: #00db63;
   --hover-color: #01ff72;
   --title-color: #000;
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 6bf31b1 (feat: initialized page frame)
   --frame-width: 24px;
   --frame-small-width: calc(var(--frame-width) / 2);
   --frame-padding: var(--frame-width) var(--frame-small-width) var(--frame-small-width) var(--frame-small-width);
@@ -21,7 +26,10 @@ body, html {
   height: 100vh;
   margin: 0;
   padding: var(--page-padding);
+<<<<<<< HEAD
   overflow: hidden;
+=======
+>>>>>>> 6bf31b1 (feat: initialized page frame)
 
 }
 
