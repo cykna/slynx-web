@@ -6,5 +6,9 @@
 .featureTitle {
   font-size: 2rem;
   margin-bottom: 1rem;
+<<<<<<< HEAD
   color: var(--title-color);
+=======
+  color: white;
+>>>>>>> 0e5e93a (feat: add Feature componente and color pallet)
 }
