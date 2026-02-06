@@ -23,7 +23,6 @@
   font-size: 6rem;
   color: var(--hover-color);
 }
-<<<<<<< HEAD
 
 .entry > h2 {
   font-size: 3rem;
@@ -66,4 +65,4 @@
 .feature_icon{
   color: var(--hover-color);
 }
->>>>>>> c17e475 (feat: add Feature componente and color pallet)
+

@@ -1,7 +1,4 @@
 :root {
-<<<<<<< HEAD
-
-=======
 >>>>>>> 0e5e93a (feat: add Feature componente and color pallet)
   --background: #ffffff;
   --foreground: #171717;
@@ -36,8 +33,7 @@ body, html {
   height: 100vh;
   margin: 0;
   padding: var(--page-padding);
-<<<<<<< HEAD
-=======
+
   overflow: hidden;
 
 
