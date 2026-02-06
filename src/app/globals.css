@@ -8,6 +8,7 @@
   --brand-color: #00a349;
   --highlight-color: #00db63;
   --hover-color: #01ff72;
+  --title-color: #000;
   
   --frame-width: 24px;
   --frame-small-width: calc(var(--frame-width) / 2);
@@ -22,12 +23,13 @@ body, html {
   padding: var(--page-padding);
   overflow: hidden;
 
-
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1b1b1b;
     --foreground: #ededed;
+
+    --title-color: #fff;
   }
 }

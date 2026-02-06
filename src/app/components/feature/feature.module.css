@@ -6,5 +6,5 @@
 .featureTitle {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: white;
+  color: var(--title-color);
 }
