@@ -7,8 +7,12 @@
   font-size: 2rem;
   margin-bottom: 1rem;
 <<<<<<< HEAD
+<<<<<<< HEAD
   color: var(--title-color);
 =======
   color: white;
 >>>>>>> 0e5e93a (feat: add Feature componente and color pallet)
+=======
+  color: var(--title-color);
+>>>>>>> 16fb021 (feat: add 'title-color' css variable)
 }
