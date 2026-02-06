@@ -1,0 +1,10 @@
+.feature {
+  width: clamp(300px, 30%, 500px);
+  padding: 2rem;
+}
+
+.featureTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: white;
+}

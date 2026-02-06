@@ -1,4 +1,14 @@
 :root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Pallet */
+  --primary-base-color: #00451f;
+  --secondary-base-color: #007334;
+  --brand-color: #00a349;
+  --highlight-color: #00db63;
+  --hover-color: #01ff72;
+  
   --frame-width: 24px;
   --frame-small-width: calc(var(--frame-width) / 2);
   --frame-padding: var(--frame-width) var(--frame-small-width) var(--frame-small-width) var(--frame-small-width);
@@ -11,11 +21,13 @@ body, html {
   margin: 0;
   padding: var(--page-padding);
   overflow: hidden;
+
+
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #1b1b1b;
     --foreground: #ededed;
   }
 }
