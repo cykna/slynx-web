@@ -1,5 +1,8 @@
 :root {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0e5e93a (feat: add Feature componente and color pallet)
   --background: #ffffff;
   --foreground: #171717;
 
@@ -14,10 +17,14 @@
   --brand-color: #00a349;
   --highlight-color: #00db63;
   --hover-color: #01ff72;
+<<<<<<< HEAD
 
   --hover-button: #f0f0f0;
   --title-color: #000;
 
+=======
+  
+>>>>>>> 0e5e93a (feat: add Feature componente and color pallet)
   --frame-width: 24px;
   --frame-small-width: calc(var(--frame-width) / 2);
   --frame-padding: var(--frame-width) var(--frame-small-width) var(--frame-small-width) var(--frame-small-width);
@@ -29,6 +36,12 @@ body, html {
   height: 100vh;
   margin: 0;
   padding: var(--page-padding);
+<<<<<<< HEAD
+=======
+  overflow: hidden;
+
+
+>>>>>>> 0e5e93a (feat: add Feature componente and color pallet)
 }
 
 @media (prefers-color-scheme: dark) {
