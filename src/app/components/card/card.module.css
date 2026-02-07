@@ -1,0 +1,44 @@
+.card {
+  width: 260px;
+  height: 180px;
+  padding: 20px;
+  border-radius: 16px;
+  background: radial-gradient(circle at top left, #1a1a1a, #0b0b0b);
+  box-shadow: 0 0 0 1px #1f1f1f;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;                 
+}
+
+.icon {
+  color: #00451F;
+  font-size: 32px;
+ 
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.link {
+  color: #00A349;
+  text-decoration: none;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+.baixo {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
