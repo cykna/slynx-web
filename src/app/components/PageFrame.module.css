@@ -11,7 +11,9 @@
   align-items: center;
   padding: var(--frame-padding);
   position: relative;
+
   overflow:  auto;
+
 }
 .header {
   position: absolute;
@@ -23,7 +25,6 @@
   align-items: center;
   justify-content: center;
   padding: var(--frame-padding)
-
 }
 
 .inner {

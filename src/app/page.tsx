@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+<<<<<<< HEAD
 import PageFrame from "./components/PageFrame"
 
 function Header(){
