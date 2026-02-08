@@ -9,7 +9,6 @@ export interface PageFrameProps {
 export default function PageFrame(props: PageFrameProps) {
   return (
     <div className={PageFrameStyles.frame}>
-
       <div className={PageFrameStyles.header}>
         {props.header}
       </div>
