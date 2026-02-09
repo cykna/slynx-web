@@ -9,7 +9,7 @@ export interface PageFrameProps {
 export default function PageFrame(props: PageFrameProps) {
   return (
     <div className={PageFrameStyles.frame}>
-      <div class={PageFrameStyles.header}>
+      <div className={PageFrameStyles.header}>
         {props.header}
       </div>
       <div className={PageFrameStyles.inner}>
