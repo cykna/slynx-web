@@ -18,7 +18,6 @@ export default function PageFrame(props: PageFrameProps) {
       <div>
         {props.footer}
       </div>
-
     </div>
 
   )
