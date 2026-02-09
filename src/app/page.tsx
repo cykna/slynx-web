@@ -1,6 +1,4 @@
 import styles from "./page.module.css";
-<<<<<<< HEAD
-import PageFrame from "./components/PageFrame"
 
 function Header(){
   return <div>Berimbau Bau Bau, berilum baubau</div>
