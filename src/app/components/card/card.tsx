@@ -10,14 +10,17 @@ type CardProps = {
 
 export function Card({ title, href, icon, children }: CardProps) {
   return (
-    <div className={styles.card}>
-      <div className={styles.icon}>{icon}</div>
+    <a className={styles.card} href={href}>
+      <div className={styles.iconWrapper}>
+        <div className={styles.icon}>{icon}</div>
+      </div>
       <div className={styles.baixo}>
         <h3 className={styles.title}>{title}</h3>
-        <a href={href} className={styles.link}>
+        
+        <div className={styles.link}>
           {children}
-        </a>
+        </div>
       </div>
-    </div>
+    </a>
   );
 }
