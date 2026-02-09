@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   width: calc(100% - var(--frame-width));
-  height: 100%;
+  height: calc(100% - var(--frame-width));
   background-color: var(--foreground);
   border-radius: 20px;
   overflow: hidden;
@@ -10,6 +10,7 @@
   align-items: center;
   padding: var(--frame-padding);
   position: relative;
+  overflow:  auto;
 }
 .header {
   position: absolute;
@@ -26,11 +27,12 @@
   --size: calc(100% - var(--frame-width));
   padding: var(--frame-padding);
   width: var(--size);
-  height: var(--size);
+  height: 100vh;
   flex-direction: column;
   display: flex;
   background-color: var(--background);
   border-radius: var(--frame-round);
   z-index: 0;
+
 }
 

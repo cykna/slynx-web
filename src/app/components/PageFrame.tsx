@@ -15,7 +15,9 @@ export default function PageFrame(props: PageFrameProps) {
       <div className={PageFrameStyles.inner}>
         {props.children}
       </div>
-      {props.footer}
+      <div>
+        {props.footer}
+      </div>
     </div>
 
   )
