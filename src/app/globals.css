@@ -2,10 +2,12 @@
   --background: #ffffff;
   --foreground: #171717;
 
+
   --frame-background: #1b1b1b;
   --frame-foreground: #ededed;
 
   --title-color: #000;
+
 
   /* Pallete */
   --primary-base-color: #00451f;
@@ -28,14 +30,22 @@
 
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+  all: unset;
+}
+
 body, html {
   width: 100vw;
   height: 100vh;
-  margin: 0;
   padding: var(--page-padding);
-}
-h1,h2,h3,h4,h5,h6,p {
-  margin: 0; padding: 0;
+  background-color: var(--background);
 }
 
 @media (prefers-color-scheme: dark) {
