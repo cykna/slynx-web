@@ -5,9 +5,11 @@ import styles from "./header.module.css"
 import Logo from "../logo/logo"
 import IconGithub from "@/app/components/IconGithub"
 
+
 export default function Header() {
   return (
     <header className={styles.header}>
+
       <div className={styles.logoContainer}>
         <Link href="/" className={styles.logoLink}>
           <Logo className={styles.logo} />
@@ -21,8 +23,7 @@ export default function Header() {
       </div>
 
       <NavBar />
-
-       <div className={styles.actions}>
+      <div className={styles.actions}>
         <button type="button" className={styles.iconBtn}>
           <Icon icon="material-symbols:search-rounded" height={24} />
         </button>
