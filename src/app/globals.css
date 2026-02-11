@@ -1,36 +1,43 @@
 :root {
-
   --background: #ffffff;
   --foreground: #171717;
 
-  /* Pallet */
+  /* Pallete */
   --primary-base-color: #00451f;
   --secondary-base-color: #007334;
   --brand-color: #00a349;
   --highlight-color: #00db63;
   --hover-color: #01ff72;
-  --title-color: #000;
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> 6bf31b1 (feat: initialized page frame)
+  --title-color: #000;
   --frame-width: 24px;
   --frame-small-width: calc(var(--frame-width) / 2);
   --frame-padding: var(--frame-width) var(--frame-small-width) var(--frame-small-width) var(--frame-small-width);
   --frame-round: 16px;
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+  all: unset;
+}
+
 body, html {
   width: 100vw;
   height: 100vh;
-  margin: 0;
   padding: var(--page-padding);
 <<<<<<< HEAD
   overflow: hidden;
 =======
 >>>>>>> 6bf31b1 (feat: initialized page frame)
 
+  /* remove later */
+  background-color: var(--background);
 }
 
 @media (prefers-color-scheme: dark) {

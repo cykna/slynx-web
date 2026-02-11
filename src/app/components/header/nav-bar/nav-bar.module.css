@@ -1,0 +1,9 @@
+.navBarList {
+  display: flex;
+  justify-self: center;
+  gap: 3rem;
+}
+
+.navBarList li {
+  list-style-type: none;
+}

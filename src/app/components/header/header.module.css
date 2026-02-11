@@ -1,0 +1,29 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+  width: 100%;
+  padding: .5rem 2rem;
+
+  /* remove later */
+  background-color: white;
+  outline: 1px solid black;
+}
+
+.title {
+  color: var(--brand-color);
+}
+
+.actions {
+  display: flex;
+  justify-self: end;
+  gap: 2rem;
+}
+
+.getStartedBtn {
+  background-color: var(--highlight-color);
+  padding: .3rem 1rem;
+  border-radius: .5rem;
+  font-weight: 600;
+}
