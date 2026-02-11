@@ -1,66 +1,85 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import { useState } from 'react';
+import SlynxHero from './components/slynxHero/slynxHero';
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+  const [selectedFeature, setSelectedFeature] = useState<string>('simple');
+
+
+  const codeExamples: Record<string, string> = {
+    'simple': `fun main() {
+  val name = "stranger"
+  println("Hi, \${name}!")
+  print("Count: ")
+  for (i in 0..10) {
+    print("\${i} ")
+  }
+}`,
+    'performance': `fun fibonacci(n: Int): Int {
+  return when (n) {
+    0 -> 0
+    1 -> 1
+    else -> fibonacci(n-1) + fibonacci(n-2)
+  }
 }
+
+fun main() {
+  val result = fibonacci(10)
+  println("Fibonacci(10) = \${result}")
+}`,
+    'orientado-dados': `data class User(
+  val id: Int,
+  val name: String,
+  val email: String
+)
+
+fun main() {
+  val users = listOf(
+    User(1, "Alice", "alice@email.com"),
+    User(2, "Bob", "bob@email.com")
+  )
+  
+  users.forEach { user ->
+    println("\${user.name}: \${user.email}")
+  }
+}`,
+    'intuitivo': `fun greet(name: String = "World") {
+  println("Hello, \${name}!")
+}
+
+fun main() {
+  greet()           // Hello, World!
+  greet("Alice")    // Hello, Alice!
+  
+  val numbers = listOf(1, 2, 3, 4, 5)
+  val doubled = numbers.map { it * 2 }
+  println(doubled)  // [2, 4, 6, 8, 10]
+}`
+  };
+
+  const handleBadgeSelection = (badgeId: string) => {
+    setSelectedFeature(badgeId);
+    console.log('Feature ativa:', badgeId);
+  };
+
+  return (
+    <main>
+      <SlynxHero 
+        title="Why"
+        brandName="Slynx"
+        description="Experience syntax that feels natural, a compiler that guides you, and performance that scales with your ambitions."
+        badges={[
+          { id: 'simple', text: 'Simples', variant: 'secondary' },
+          { id: 'performance', text: 'Performance', variant: 'secondary' },
+          { id: 'orientado-dados', text: 'Orientado a Dados', variant: 'secondary' },
+          { id: 'intuitivo', text: 'Intuitivo', variant: 'secondary' },
+        ]}
+        codeExample={codeExamples[selectedFeature]}
+        fileName="MAIN.SX"
+        typingSpeed={20}
+        onBadgeSelect={handleBadgeSelection}
+      />
+    </main>
+  );
+};
