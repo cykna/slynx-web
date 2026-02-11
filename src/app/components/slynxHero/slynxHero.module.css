@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+
+:root {
+
+  --foreground: #171717;
+
+  /* Pallet */
+  --primary-base-color: #00451f;
+  --secondary-base-color: #007334;
+  --brand-color: #00a349;
+  --highlight-color: #00db63;
+  --hover-color: #01ff72;
+
+  --title-color: #000;
+}
+
+.container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  width: 100%;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  font-family: 'Familjen Grotesk', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 700;
+  color: var(--brand-color);
+  margin: 0 0 1.5rem 0;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+
+.description {
+  font-family: 'Familjen Grotesk', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  color: #94a3b8;
+  line-height: 1.7;
+  margin: 0 0 2rem 0;
+  font-weight: 400;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.badge {
+  font-family: 'Familjen Grotesk', sans-serif;
+  padding: 0.625rem 1.25rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  animation: fadeInBadge 0.6s ease-out forwards;
+  border: none;
+  outline: none;
+}
+
+@keyframes fadeInBadge {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.badgePrimary {
+  background: var(--brand-color);
+  color: #fff;
+  border: 1px solid var(--brand-color);
+  font-weight: 500;
+}
+
+.badgePrimary:hover {
+  background: var(--highlight-color);
+  border-color: var(--highlight-color);
+}
+
+/* Efeito ao clicar (momento do clique apenas) */
+.badgePrimary:active {
+  transform: scale(0.98);
+}
+
+.badgeSecondary {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.badgeSecondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* Efeito ao clicar (momento do clique apenas) */
+.badgeSecondary:active {
+  transform: scale(0.98);
+}
+
+.codeWindow {
+  background: #1a1f1c;
+  border-radius: 1rem;
+  overflow: hidden;
+  animation: slideInCode 0.8s ease-out 0.3s backwards;
+}
+
+@keyframes slideInCode {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.codeHeader {
+  background: #141816;
+  padding: 0.875rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.trafficLights {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.trafficRed,
+.trafficYellow,
+.trafficGreen {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.trafficRed {
+  background: #ff5f57;
+
+}
+
+.trafficYellow {
+  background: #ffbd2e;
+
+}
+
+.trafficGreen {
+  background: #28ca42;
+
+}
+
+
+
+.fileName {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.codeBody {
+  padding: 1.5rem;
+  background: #0f1311;
+  position: relative;
+  min-height: 200px;
+}
+
+.codeContent {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: #94a3b8;
+  margin: 0;
+  position: relative;
+}
+
+.codeLine {
+  padding: 0.125rem 0;
+  transition: background 0.2s ease;
+}
+
+.codeLine:hover {
+  background: rgba(52, 211, 153, 0.05);
+  margin: 0 -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+
+
+/* Syntax highlighting simulation */
+.codeContent code {
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .badges {
+    gap: 0.5rem;
+  }
+
+  .badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+  }
+
+  .codeBody {
+    padding: 1rem;
+  }
+
+  .codeContent {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    margin-bottom: 1.5rem;
+  }
+
+  .badges {
+    margin-bottom: 2rem;
+  }
+
+  .codeHeader {
+    padding: 0.75rem;
+  }
+}
