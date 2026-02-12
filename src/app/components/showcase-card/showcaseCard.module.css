@@ -13,10 +13,10 @@
 /* CARD */
 .card {
   position: relative;
-  flex: 0 0 420px;   /* controla largura fixa mais estreita */
+  flex: 0 0 420px;   
   background: var(--background);
   border-radius: 16px;
-  padding: 28px;     /* reduz padding */
+  padding: 28px;    
   border: 2px solid rgba(0, 163, 73, 0.18);
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
