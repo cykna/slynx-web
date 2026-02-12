@@ -19,10 +19,15 @@
   --hover-button: #f0f0f0;
   --title-color: #000;
 
+
+  /* Frame */
   --frame-width: 24px;
   --frame-small-width: calc(var(--frame-width) / 2);
   --frame-padding: var(--frame-width) var(--frame-small-width) var(--frame-small-width) var(--frame-small-width);
   --frame-round: 16px;
+
+  /* Footer */
+  --footer-padding: var(--frame-padding);
 }
 
 body, html {
