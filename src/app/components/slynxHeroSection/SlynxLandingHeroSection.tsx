@@ -16,6 +16,44 @@ interface Badge {
 }
 
 /**
+ * Props for the BadgeButton component
+ */
+interface BadgeButtonProps {
+  /** Badge configuration object */
+  badge: Badge;
+  /** Whether this badge is currently selected */
+  isSelected: boolean;
+  /** Index position for staggered animation delay */
+  index: number;
+  /** Click handler that receives the badge id */
+  onClick: (badgeId: string) => void;
+}
+
+/**
+ * BadgeButton Component
+ * 
+ * A selectable badge button with animation delay and visual feedback.
+ * Displays different styles based on selection state.
+ * 
+ * @param props - Badge button props
+ * @returns React button element
+ */
+function BadgeButton({ badge, isSelected, index, onClick }: BadgeButtonProps) {
+  return (
+    <button
+      onClick={() => onClick(badge.id)}
+      className={`${styles.badge} ${
+        isSelected ? styles.badgePrimary : styles.badgeSecondary
+      }`}
+      style={{ animationDelay: `${index * 0.1}s` }}
+      aria-pressed={isSelected}
+    >
+      {badge.text}
+    </button>
+  );
+}
+
+/**
  * Props for the WhySlynxSection component
  */
 interface WhySlynxSectionProps {
@@ -70,10 +108,15 @@ interface WhySlynxSectionProps {
  * 
  * @example
  * ```tsx
- * const [selectedFeature, setSelectedFeature] = useState('simple');
- * const featureCodeExamples = {
+ * type FeatureId = 'simple' | 'performance' | 'data-oriented' | 'intuitive';
+ * 
+ * const [selectedFeature, setSelectedFeature] = useState<FeatureId>('simple');
+ * 
+ * const featureCodeExamples: Record<FeatureId, string> = {
  *   simple: 'fun main() { println("Hello") }',
- *   performance: 'fun optimize() { ... }'
+ *   performance: 'fun fibonacci(n: Int): Int { ... }',
+ *   'data-oriented': 'struct Player { var health: Int }',
+ *   intuitive: 'fun greet(name: String) { ... }'
  * };
  * 
  * <WhySlynxSection
@@ -82,12 +125,14 @@ interface WhySlynxSectionProps {
  *   description="Experience a syntax that feels natural..."
  *   badges={[
  *     { id: 'simple', text: 'Simple', variant: 'primary' },
- *     { id: 'performance', text: 'Performance', variant: 'secondary' }
+ *     { id: 'performance', text: 'Performance', variant: 'secondary' },
+ *     { id: 'data-oriented', text: 'Data Oriented', variant: 'secondary' },
+ *     { id: 'intuitive', text: 'Intuitive', variant: 'secondary' }
  *   ]}
  *   codeExample={featureCodeExamples[selectedFeature]}
  *   fileName="MAIN.SX"
  *   typingSpeed={30}
- *   onBadgeSelect={(id) => setSelectedFeature(id)}
+ *   onBadgeSelect={(id) => setSelectedFeature(id as FeatureId)}
  * />
  * ```
  * 
@@ -159,24 +204,15 @@ export function WhySlynxSection(props: WhySlynxSectionProps) {
         </p>
 
         <div className={styles.badges}>
-          {badges.map((badge, index) => {
-            const isSelected = selectedBadges.has(badge.id);
-            return (
-              <button
-                key={badge.id}
-                onClick={() => handleBadgeClick(badge.id)}
-                className={`${styles.badge} ${
-                  isSelected 
-                    ? styles.badgePrimary 
-                    : styles.badgeSecondary
-                }`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-                aria-pressed={isSelected}
-              >
-                {badge.text}
-              </button>
-            );
-          })}
+          {badges.map((badge, index) => (
+            <BadgeButton
+              key={badge.id}
+              badge={badge}
+              isSelected={selectedBadges.has(badge.id)}
+              index={index}
+              onClick={handleBadgeClick}
+            />
+          ))}
         </div>
 
         <div className={styles.codeWindow}>
