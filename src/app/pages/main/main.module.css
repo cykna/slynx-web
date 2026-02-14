@@ -1,8 +1,14 @@
 .main {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+.main > * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .entry {
   display: flex;
@@ -40,4 +46,8 @@
 .entry > .start_now > a {
   text-decoration: none;
   color: var(--hover-color);
+}
+
+.lang_specs {
+  color: var(--foreground);
 }

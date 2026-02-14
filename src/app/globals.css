@@ -24,7 +24,7 @@
   /* Frame */
   --frame-width: 24px;
   --frame-small-width: calc(var(--frame-width) / 2);
-  --frame-padding: var(--frame-width) var(--frame-small-width) var(--frame-small-width) var(--frame-small-width);
+  --frame-padding: 0px var(--frame-small-width) var(--frame-small-width) var(--frame-small-width);
   --frame-round: 16px;
 
   /* Footer */
@@ -36,7 +36,6 @@ body, html {
   height: 100vh;
   margin: 0;
   padding: var(--page-padding);
-  overflow: hidden;
 }
 h1,h2,h3,h4,h5,h6,p {
   margin: 0; padding: 0;
