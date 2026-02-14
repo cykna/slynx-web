@@ -8,9 +8,7 @@ function Header() {
 export default function Home() {
   return (
     <PageFrame header={<Header />} footer={<Footer />}>
-      <p>Hello world</p>
-      <p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p><p>Hello world</p>
-      <p>Hello world</p>
+      <MainPage />
     </PageFrame>
   );
 
