@@ -1,6 +1,7 @@
 import Link from "next/link";
 import MainStyles from "./main.module.css";
 import Feature from "@/app/components/feature/feature";
+import Icon from "@/app/components/icon";
 /**
 * The component of the main page of slynx. This is idealized to be shown only on /.
 * This component can be used to nagivate to `/docs/get-started`
@@ -21,9 +22,17 @@ export default function MainPage() {
       </div>
       <div className={MainStyles.lang_specs}>
         <h1>What is Slynx?</h1>
-        <Feature title="Performatic Language" iconSrc={null as any as string}>
-          Hello world
-        </Feature>
+        <div>
+          <Feature title="Performatic Language" icon={<Icon icon="material-symbols:speed" width="48" height="48" className={MainStyles.feature_icon} />} >
+            Hello world
+          </Feature>
+          <Feature title="Performatic Language" icon={<Icon icon="material-symbols:speed" width="48" height="48" className={MainStyles.feature_icon} />} >
+            Hello world
+          </Feature>
+          <Feature title="Performatic Language" icon={<Icon icon="material-symbols:speed" width="48" height="48" className={MainStyles.feature_icon} />} >
+            Hello world
+          </Feature>
+        </div>
       </div>
     </main>
   )
