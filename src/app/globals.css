@@ -9,6 +9,7 @@
 
   /* Pallete */
   --primary-base-color: #00451f;
+  --primary-base-color-rgb: 0, 69, 31;
   --secondary-base-color: #007334;
   --brand-color: #00a349;
   --highlight-color: #00db63;
@@ -31,6 +32,10 @@ body, html {
   height: 100vh;
   margin: 0;
   padding: var(--page-padding);
+  overflow: hidden;
+}
+h1,h2,h3,h4,h5,h6,p {
+  margin: 0; padding: 0;
 }
 
 @media (prefers-color-scheme: dark) {
