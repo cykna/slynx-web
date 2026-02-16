@@ -2,14 +2,24 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  /* Pallet */
+  --frame-background: #1b1b1b;
+  --frame-foreground: #ededed;
+
+  --title-color: #000;
+
+  /* Pallete */
   --primary-base-color: #00451f;
   --secondary-base-color: #007334;
   --brand-color: #00a349;
   --highlight-color: #00db63;
   --hover-color: #01ff72;
 
-  --title-color: #000;
+  --hover-button: #f0f0f0;
+
+  --frame-width: 24px;
+  --frame-small-width: calc(var(--frame-width) / 2);
+  --frame-padding: var(--frame-width) var(--frame-small-width) var(--frame-small-width) var(--frame-small-width);
+  --frame-round: 16px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,37 +27,42 @@
     --background: #1b1b1b;
     --foreground: #ededed;
 
+    --frame-background: #fff;
+    --frame-foreground: #000;
+    
     --title-color: #fff;
   }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+  padding: var(--page-padding);
+  overflow: hidden;
+
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+button {
+  all: unset;
+  cursor: pointer;
+
+  &:has(svg) {
+    line-height: 0;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--hover-button);
+    }
   }
 }
