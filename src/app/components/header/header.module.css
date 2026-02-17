@@ -5,13 +5,13 @@
   gap: 2rem;
   align-items: center;
   max-width: 120rem;
-  padding: .5rem 2rem;
+  padding: .6rem 2rem;
   margin-inline: auto;
   background-color: var(--frame-background);
   color: var(--frame-foreground);
 }
 
-@media (width >= 1024px) {
+@media (width >=1024px) {
   .header {
     grid-template-areas: "logo nav actions";
     grid-template-columns: repeat(3, 1fr);
@@ -29,8 +29,11 @@
   text-decoration: none;
 }
 
-.title {
+.title span {
+  font-family: "Inter", sans-serif;
   color: var(--brand-color);
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .actions {
@@ -55,10 +58,13 @@
   color: currentColor;
   background-color: var(--highlight-color);
   transition: background-color .2s ease;
+  border: 2px solid black;
+  box-shadow: 0 3px 1px rgba(0, 0, 0);
 
   @media (hover: hover) {
     &:hover {
       background-color: var(--hover-color);
+      box-shadow: 0 2px 1px rgba(0, 0, 0);
     }
   }
 }
@@ -67,7 +73,7 @@
   display: none;
 }
 
-@media (width >= 640px) {
+@media (width >=640px) {
   .headerGetStartedLink {
     display: inline-block;
   }
