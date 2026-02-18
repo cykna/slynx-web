@@ -1,8 +1,7 @@
 // // Logo da Slynx
-
-const logo = () => {
+const logo = ({ className }: { className?: string }) => {
     return (
-        <svg width="72" height="64" viewBox="0 0 212 204" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className={className} viewBox="0 0 212 204" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="96.5" y="118" width="10" height="45" fill="#05532B" />
             <rect x="6.5" y="154" width="15" height="15" fill="#00B753" />
             <rect x="27.5" y="154" width="15" height="15" fill="#00B753" />

@@ -10,19 +10,19 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.logoContainer}>
         <Link href="/" className={styles.logoLink}>
-          <Logo />
+          <Logo className={styles.logo} />
           <span className={styles.title}>
-            <span style={{ color: "#007B37" }}>S</span>
-            <span style={{ color: "#009D47" }}>ly</span>
-            <span style={{ color: "#00A249" }}>n</span>
-            <span style={{ color: "#02C75B" }}>x</span>
+            <span className={styles.letterS}>S</span>
+            <span className={styles.letterLy}>ly</span>
+            <span className={styles.letterN}>n</span>
+            <span className={styles.letterX}>x</span>
           </span>
         </Link>
       </div>
 
       <NavBar />
 
-      <div className={styles.actions}>
+       <div className={styles.actions}>
         <button type="button" className={styles.iconBtn}>
           <Icon icon="material-symbols:search-rounded" height={24} />
         </button>
@@ -37,9 +37,9 @@ export default function Header() {
           <Icon icon="material-symbols:translate" height={24} />
         </button>
 
-        <button type="button" className={styles.iconBtn}>
+        <a href="https://github.com/slynx/slynx" target="_blank" className={styles.iconBtn}>
           <IconGithub />
-        </button>
+        </a>
       </div>
     </header>
   )

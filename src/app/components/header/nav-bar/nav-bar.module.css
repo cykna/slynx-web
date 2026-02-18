@@ -56,3 +56,15 @@
     display: none;
   }
 }
+
+.mobileActions {
+  display: flex;
+  gap: 1rem;
+  list-style-type: none;
+}
+
+.mobileIconBtn {
+  height: max-content;
+  padding: .3rem;
+  border-radius: 50%;
+}
