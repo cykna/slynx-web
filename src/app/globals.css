@@ -14,7 +14,7 @@
   --highlight-color: #00db63;
   --hover-color: #01ff72;
 
-  --hover-button: #f0f0f0;
+  --hover-button: rgba(255, 255, 255, 0.1);
 
   --frame-width: 24px;
   --frame-small-width: calc(var(--frame-width) / 2);
@@ -23,15 +23,37 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.light) {
     --background: #1b1b1b;
     --foreground: #ededed;
 
     --frame-background: #fff;
     --frame-foreground: #000;
-    
+
     --title-color: #fff;
   }
+}
+
+:root.dark {
+  --background: #1b1b1b;
+  --foreground: #ededed;
+
+  --frame-background: #fff;
+  --frame-foreground: #000;
+
+  --title-color: #fff;
+  --hover-button: rgba(0, 0, 0, 0.1);
+}
+
+:root.light {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --frame-background: #1b1b1b;
+  --frame-foreground: #ededed;
+
+  --title-color: #000;
+  --hover-button: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -50,14 +72,27 @@ html {
 
   background-color: var(--background);
   color: var(--foreground);
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root {
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 button {
   all: unset;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:active {
+    transform: scale(0.95);
+  }
 
   &:has(svg) {
     line-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   @media (hover: hover) {

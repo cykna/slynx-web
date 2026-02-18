@@ -5,6 +5,8 @@ import styles from "./header.module.css"
 import Logo from "../logo/logo"
 import IconGithub from "@/app/components/IconGithub"
 
+import ThemeToggle from "../theme-toggle/theme-toggle"
+
 export default function Header() {
   return (
     <header className={styles.header}>
@@ -29,9 +31,7 @@ export default function Header() {
 
         <Link href="#" className={`getStartedLink ${styles.headerGetStartedLink}`}>Get Started</Link>
 
-        <button type="button" className={styles.iconBtn}>
-          <Icon icon="material-symbols:dark-mode-outline-rounded" height={24} />
-        </button>
+        <ThemeToggle />
 
         <button type="button" className={styles.iconBtn}>
           <Icon icon="material-symbols:translate" height={24} />
@@ -42,5 +42,5 @@ export default function Header() {
         </a>
       </div>
     </header>
-  )
+  );
 }
