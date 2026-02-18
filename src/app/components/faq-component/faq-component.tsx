@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Icon } from "@iconify/react";
-import styles from "./faqItem.module.css";
+import styles from "./faq-component.module.css";
 
 /**
  * Props for the FaqItem component
