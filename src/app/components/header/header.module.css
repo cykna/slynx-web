@@ -7,7 +7,7 @@
   max-width: 120rem;
   padding: .6rem 2rem;
   margin-inline: auto;
-  background-color: var(--frame-background);
+  background-color: transparent;
   color: var(--frame-foreground);
 }
 
