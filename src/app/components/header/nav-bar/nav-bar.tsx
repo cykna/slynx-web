@@ -5,6 +5,8 @@ import { useState, useEffect } from "react"
 import MenuButton from "./menu-button/menu-button"
 import MobileMenu from "./mobile-menu/mobile-menu"
 import Link from "next/link"
+import Icon from "@/app/components/icon"
+import IconGithub from "@/app/components/IconGithub"
 import styles from "./nav-bar.module.css"
 
 const links = [
@@ -51,6 +53,20 @@ export default function NavBar() {
           <MobileMenu isMenuOpen={isMenuOpen}>
             {menuItems}
             <Link href="#" className={`getStartedLink ${styles.mobileGetStartedLink}`}>Get Started</Link>
+            <li className={styles.mobileActions}>
+              <button type="button" className={styles.mobileIconBtn}>
+                <Icon icon="material-symbols:search-rounded" height={24} />
+              </button>
+              <button type="button" className={styles.mobileIconBtn}>
+                <Icon icon="material-symbols:dark-mode-outline-rounded" height={24} />
+              </button>
+              <button type="button" className={styles.mobileIconBtn}>
+                <Icon icon="material-symbols:translate" height={24} />
+              </button>
+              <a href="https://github.com/slynx/slynx" target="_blank" className={styles.mobileIconBtn}>
+                <IconGithub />
+              </a>
+            </li>
           </MobileMenu>
         </> :
         <ul className={styles.navBarMenu}>
