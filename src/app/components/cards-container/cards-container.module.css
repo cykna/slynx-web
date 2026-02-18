@@ -1,0 +1,22 @@
+.cards{
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  width: 90%;
+  justify-content: center;
+  margin: auto;
+}
+
+.started{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  gap: 10px;
+  color: #00DB63;
+}
+
+.get{
+  color: white;
+}
