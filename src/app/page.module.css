@@ -1,8 +1,9 @@
 .main {
+  --gap-size: 10rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
+  gap: var(--gap-size);
+  padding: calc(var(--gap-size));
 }
 .main > * {
   display: flex;
@@ -16,8 +17,6 @@
   align-items:center;
   justify-content: center;
   gap: 2rem;
-  width: 100%;
-  height: 100%; 
 }
 .entry > h1 {
   font-size: 6rem;
@@ -64,4 +63,13 @@
 
 .feature_icon{
   color: var(--hover-color);
+}
+
+.faq_container {
+  width: 100%;
+}
+
+.faq_title {
+  color: var(--foreground);
+  font-size: 2rem;
 }

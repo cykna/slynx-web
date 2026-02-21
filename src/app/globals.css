@@ -45,7 +45,6 @@ button {
 
 body, html {
   width: 100vw;
-  height: 100vh;
   padding: var(--page-padding);
   background-color: var(--background);
 }

@@ -3,6 +3,10 @@ import MainStyles from "./page.module.css";
 import Feature from "./components/feature/feature";
 import { Icon } from "@iconify/react";
 import Cards from "./components/cards-container/cards-container";
+import WhySlynxSection from "./components/slynxHeroSection/SlynxLandingHeroSection";
+import FaqItem from "./components/faq-component/faq-component";
+import { LangCapabilities } from "./components/capabilities/lang-capabilities";
+import Testimonials from "./components/testimonial/testimonial";
 
 
 /**
@@ -37,9 +41,26 @@ export default function Home() {
           </Feature>
         </div>
       </div>
-      <div>
-        <Cards />
-      </div>
+      <div> <Cards /> </div>
+      <WhySlynxSection title="Why" brandName="Slynx" description="Bla ble bli blo blu" badges={[]} codeExample="aaa" fileName="main.sx" typingSpeed={300} />
+      <LangCapabilities capabilities={[
+        { title: "UI mordernas", description: "Crie interfaces otimizadas e estilosas com a nossa engine" },
+        { title: "UI mordernas", description: "Crie interfaces otimizadas e estilosas com a nossa engine" },
+        { title: "UI mordernas", description: "Crie interfaces otimizadas e estilosas com a nossa engine" },
+        { title: "UI mordernas", description: "Crie interfaces otimizadas e estilosas com a nossa engine" },
+        { title: "UI mordernas", description: "Crie interfaces otimizadas e estilosas com a nossa engine" }
+      ]} title="What's possible with" emphasized_text="Slynx" />
+      <Testimonials testimonials={[{
+        author: 'Owner',
+        id: 0,
+        role: 'Owner',
+        text: "The project is ongoing and yet there's no testimonial"
+      }]} />
+      <div className={MainStyles.faq_container}>
+        <h1 className={MainStyles.faq_title}>Faq</h1>
+        <FaqItem question="Is it ready for production" answer="No the language is experimental and has a lot to improve" />
+        <FaqItem question="Is it ready for production" answer="No the language is experimental and has a lot to improve" />
+        <FaqItem question="Is it ready for production" answer="No the language is experimental and has a lot to improve" />     </div>
     </main>
   );
 }

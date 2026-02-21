@@ -1,8 +1,7 @@
 .frame {
   display: flex;
   position: relative;
-  width: calc(100% - var(--frame-width));
-  height: 100%;
+  width: 100%;
   background-color: var(--foreground);
   border-radius: 20px;
   overflow: hidden;
@@ -16,12 +15,10 @@
   --size: calc(100% - var(--frame-width));
   padding: var(--frame-padding);
   width: var(--size);
-  height: var(--size);
   flex-direction: column;
   display: flex;
   background-color: var(--background);
   border-radius: var(--frame-round);
   z-index: 0;
-
 }
 
