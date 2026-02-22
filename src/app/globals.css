@@ -43,10 +43,13 @@ button {
   all: unset;
 }
 
-body, html {
+body,
+html {
   width: 100vw;
-  padding: var(--page-padding);
+  max-width: 100%;
+  padding: 0;
   background-color: var(--background);
+  overflow-x: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -56,7 +59,7 @@ body, html {
 
     --frame-background: #fff;
     --frame-foreground: #000;
-    
+
     --title-color: #fff;
   }
 }
@@ -82,4 +85,3 @@ button {
     }
   }
 }
-
