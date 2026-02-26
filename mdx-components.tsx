@@ -1,18 +1,23 @@
-// mdx-components.tsx  (raiz do projeto, junto com next.config.ts)
+// mdx-components.tsx
 import type { MDXComponents } from "mdx/types"
 import { DocsSection, DocsCodeBlock } from "./src/app/components/docs/DocsContent"
 import styles from "./src/app/components/docs/DocsContent.module.css"
 
 /**
- * Mapeia as tags MDX para os componentes estilizados das docs.
- * ## vira DocsSection, ``` vira DocsCodeBlock, p vira parágrafo estilizado.
+ * Maps MDX tags to styled documentation components.
+ *
+ * - `##` headings → `DocsSection` (anchored, TOC-compatible)
+ * - `p` → styled paragraph
+ * - fenced code blocks → `DocsCodeBlock`
+ *
+ * This file is picked up automatically by Next.js when `@next/mdx` is configured.
  */
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h2: ({ children, id }) => (
-      <DocsSection id={id ?? ""} title={String(children)}>
-        {null}
-      </DocsSection>
+      <h2 id={id} className={styles.sectionTitle}>
+        # {children}
+      </h2>
     ),
     p: ({ children }) => (
       <p className={styles.paragraph}>{children}</p>
