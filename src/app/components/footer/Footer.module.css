@@ -1,6 +1,7 @@
 :root {
-    --footer-padding: 12px;
+  --footer-padding: 12px;
 }
+
 .outer {
   width: 100%;
   height: 100%;
@@ -18,33 +19,47 @@
 }
 
 .footer {
-
   padding-bottom: calc(var(--footer-padding) * 2);
-  width: 90%;
+  width: 95%;
   height: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: top;
-  
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
 }
-.footer > * {
+
+@media (min-width: 868px) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: top;
+    width: 90%;
+    gap: 1rem;
+  }
+}
+
+.footer>* {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-width: 150px;
 }
 
-.footer > div > *:first-child {
+.footer>div>*:first-child {
   color: var(--background);
-  text-weight: 700;
+  font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.1rem);
 }
 
-.footer > div > a {
+.footer>div>a {
   color: var(--background);
   text-decoration: none;
   transition-duration: 300ms;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
 }
-.footer > div > a:hover {
+
+.footer>div>a:hover {
   color: var(--primary-base-color);
 }
 
@@ -58,4 +73,5 @@
   align-items: center;
   padding-top: var(--footer-padding);
   padding-bottom: var(--footer-padding);
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
 }
