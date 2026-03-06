@@ -13,6 +13,12 @@ export default function PageFrame(props: PageFrameProps) {
         {props.header}
       </div>
       <div className={PageFrameStyles.inner}>
+        <img
+          src="/ShadeEffect.svg"
+          alt=""
+          aria-hidden
+          className={PageFrameStyles.shadeEffect}
+        />
         {props.children}
       </div>
       {props.footer}
