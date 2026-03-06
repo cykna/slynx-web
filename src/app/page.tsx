@@ -1,3 +1,6 @@
+"use client"
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import MainStyles from "./page.module.css";
 import Feature from "./components/feature/feature";
@@ -7,7 +10,7 @@ import WhySlynxSection from "./components/slynxHeroSection/SlynxLandingHeroSecti
 import FaqItem from "./components/faq-component/faq-component";
 import { LangCapabilities } from "./components/capabilities/lang-capabilities";
 import Testimonials from "./components/testimonial/testimonial";
-
+import { ARTICLES } from "./docs/articles";
 
 /**
 * The component of the main page of slynx. This is idealized to be shown only on /.
@@ -41,9 +44,9 @@ export default function Home() {
     <main className={MainStyles.main}>
       <div className={MainStyles.entry}>
         <h1>Slynx</h1>
-        <h2>Customizable, Fast, && Efficient </h2>
+        <h2>Customizable, Fast, & Efficient </h2>
         <div className={MainStyles.start_now}>
-          <Link href="/docs/get-started">Get Started</Link>
+          <Link href="/docs/get-started">Get Started {<Icon icon="material-symbols:arrow-forward" width="30" height="30" className={MainStyles.arrow_icon} />} </Link>
         </div>
       </div>
       <div className={MainStyles.lang_specs}>
