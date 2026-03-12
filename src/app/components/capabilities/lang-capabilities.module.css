@@ -2,7 +2,13 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  align-items: flex-start;
+  background-color: #0B0B0B;
+  width: 100%;
+  padding: 100px;
+  border-radius: 20px;
 }
+
 .container {
   display: flex;
   gap: 32px;
@@ -14,15 +20,19 @@
 
 .title {
   color: var(--title-color);
+  font-size: 48px;
 }
 
 .capability {
-  color: var(--foreground);
+  color: var(--commum-text);
   border-radius: 2rem;
   border-width: 2px;
   border-left-width: 0.666rem;
   border-color: var(--primary-base-color);
   border-style: solid;
+  width: 550px;
+  font-size: 24px;
+  background-color: #131317;
 
   display: flex;
   flex-direction: column;
@@ -41,7 +51,13 @@
   background-color: var(--hover-color);
 }
 
+.capability h1 {
+  color: white;
+  font-weight: 800;
+}
+
 .traces {
+  margin-top: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;

@@ -102,11 +102,8 @@ export default function Home() {
       <div> <Cards /> </div>
       <WhySlynxContainer />
       <LangCapabilities capabilities={[
-        { title: "UI mordernas", description: "Crie interfaces otimizadas e estilosas com a nossa engine" },
-        { title: "UI mordernas", description: "Crie interfaces otimizadas e estilosas com a nossa engine" },
-        { title: "UI mordernas", description: "Crie interfaces otimizadas e estilosas com a nossa engine" },
-        { title: "UI mordernas", description: "Crie interfaces otimizadas e estilosas com a nossa engine" },
-        { title: "UI mordernas", description: "Crie interfaces otimizadas e estilosas com a nossa engine" }
+        { title: "modern UIs", description: "Create buttery smooth 120fps interfaces with our declarative UI engine." },
+        { title: "Componentization", description: "Modular architecture designed for massive team collaboration and reuse." },
       ]} title="What's possible with" emphasized_text="Slynx" />
       <Testimonials testimonials={[{
         author: 'Owner',
