@@ -3,7 +3,6 @@
   position: relative;
   width: 100%;
   background-color: var(--foreground);
-  border-radius: 20px;
   overflow: hidden;
   flex-direction: column;
   align-items: center;
@@ -19,6 +18,26 @@
   display: flex;
   background-color: var(--background);
   border-radius: var(--frame-round);
+  z-index: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.inner > * {
+  position: relative;
+  z-index: 1;
+}
+
+.shadeEffect {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: min(600px, 55vw);
+  height: auto;
+  max-height: 1500px;
+  object-fit: contain;
+  object-position: left top;
+  pointer-events: none;
   z-index: 0;
 }
 
