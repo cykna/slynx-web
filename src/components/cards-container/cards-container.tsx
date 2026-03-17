@@ -17,8 +17,6 @@ export default function Cards() {
                     icon={
                         <Icon
                             icon="material-symbols:book-outline-rounded"
-                            width={120}
-                            height={120}
                             color="var(--card-icons)"
                         />
                     }
@@ -32,8 +30,6 @@ export default function Cards() {
                     icon={
                         <Icon
                             icon="fe:terminal"
-                            width={120}
-                            height={120}
                             color="var(--card-icons)"
                         />
                     }
@@ -47,8 +43,6 @@ export default function Cards() {
                     icon={
                         <Icon
                             icon="material-symbols:download"
-                            width={120}
-                            height={120}
                             color="var(--card-icons)"
                         />
                     }

@@ -23,6 +23,15 @@
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .inner {
+    --size: 100%;
+    width: 100%;
+    padding: calc(var(--frame-padding) * 0.75);
+    border-radius: calc(var(--frame-round) * 0.75);
+  }
+}
+
 .inner > * {
   position: relative;
   z-index: 1;

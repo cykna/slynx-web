@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -46,7 +46,13 @@ export default function Home() {
         <h1>Slynx</h1>
         <h2>Customizable, Fast, & Efficient </h2>
         <div className={MainStyles.start_now}>
-          <Link href="/docs/get-started">Get Started {<Icon icon="material-symbols:arrow-forward" width="30" height="30" className={MainStyles.arrow_icon} />} </Link>
+          <Link href="/docs/get-started" className={MainStyles.start_now_link}>
+            Get Started
+            <Icon
+              icon="material-symbols:arrow-forward"
+              className={MainStyles.arrow_icon}
+            />
+          </Link>
         </div>
       </div>
       <div className={MainStyles.lang_specs}>
@@ -58,8 +64,6 @@ export default function Home() {
             icon={
               <Icon
                 icon="material-symbols:speed"
-                width="48"
-                height="48"
                 className={MainStyles.feature_icon}
               />
             }
@@ -73,8 +77,6 @@ export default function Home() {
             icon={
               <Icon
                 icon="ant-design:safety-outlined"
-                width="48"
-                height="48"
                 className={MainStyles.feature_icon}
               />
             }
@@ -88,8 +90,6 @@ export default function Home() {
             icon={
               <Icon
                 icon="material-symbols:security"
-                width="48"
-                height="48"
                 className={MainStyles.feature_icon}
               />
             }

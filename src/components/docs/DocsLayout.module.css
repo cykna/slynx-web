@@ -6,10 +6,24 @@
   background-color: var(--background);
 }
 
+@media (max-width: 1024px) {
+  .root {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
 .main {
   flex: 1;
   overflow-y: auto;
   padding: 32px 48px;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 24px 16px;
+  }
 }
 
 .main::-webkit-scrollbar {

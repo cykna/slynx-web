@@ -16,10 +16,9 @@
 
 @media (max-width: 868px) {
   .cards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
   }
 }
 
@@ -31,7 +30,10 @@
   margin-top: 40px;
   gap: 10px;
   color: #00DB63;
-  font-size: 48;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  max-width: 90%;
+  margin-inline: auto;
+  flex-wrap: wrap;
 }
 
 .get {

@@ -76,3 +76,37 @@
   padding-bottom: var(--footer-padding);
   font-size: clamp(0.85rem, 1.5vw, 0.95rem);
 }
+
+/* Mobile: two-column layout for footer sections */
+@media (max-width: 640px) {
+  .footer {
+    width: 100%;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "logo logo"
+      "why packages"
+      "get connect";
+  }
+
+  .footer > div:nth-child(1) {
+    grid-area: logo;
+  }
+
+  .footer > div:nth-child(2) {
+    grid-area: why;
+  }
+
+  .footer > div:nth-child(3) {
+    grid-area: get;
+  }
+
+  .footer > div:nth-child(4) {
+    grid-area: packages;
+  }
+
+  .footer > div:nth-child(5) {
+    grid-area: connect;
+  }
+}

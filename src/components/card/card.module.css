@@ -36,6 +36,13 @@
   text-decoration: none;
 }
 
+@media (max-width: 768px) {
+  .card {
+    --card-width: 100%;
+    --card-height: auto;
+  }
+}
+
 .card:hover {
   transform: scale(0.96);
   box-shadow: 0 0 12px var(--card-shadow);
@@ -48,7 +55,13 @@
   transition-duration: 300ms;
   transform-origin: center;
   color: var(--card-icon-color);
-  font-size: 32px;
+  font-size: 120px;
+}
+
+@media (max-width: 768px) {
+  .icon {
+    font-size: 48px;
+  }
 }
 
 .icon::after {
@@ -68,7 +81,7 @@
 
 .title {
   color: var(--foreground);
-  font-size: 36px;
+  font-size: clamp(1.4rem, 4vw, 2rem);
   font-weight: bold;
 }
 
@@ -81,7 +94,7 @@
   align-items: center;
   margin: 0;
   padding: 0;
-  font-size: 24px;
+  font-size: clamp(0.95rem, 3vw, 1.25rem);
   font-weight: 600;
 }
 

@@ -29,7 +29,7 @@
 
 .title {
   font-family: 'Familjen Grotesk', sans-serif;
-  font-size: 64px;
+  font-size: clamp(2.4rem, 7vw, 4rem);
   font-weight: 700;
   
   color: #fff;
@@ -251,6 +251,8 @@
   display: block;
   font-family: 'JetBrains Mono', monospace;
   color: var(--dracula-fg);
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 /* Dracula syntax highlighting (VS Code style) */
@@ -285,10 +287,16 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .container {
-    padding: 1.5rem;
+    padding: 1.5rem 1.25rem;
   }
 
   .content {
+    max-width: 100%;
+  }
+
+  .codeWindow {
+    margin-top: 1.5rem;
+    width: 100%;
     max-width: 100%;
   }
 
@@ -303,6 +311,7 @@
 
   .codeBody {
     padding: 1rem;
+    min-height: 160px;
   }
 
   .codeContent {
@@ -325,5 +334,9 @@
 
   .codeHeader {
     padding: 0.75rem;
+  }
+
+  .codeBody {
+    min-height: 140px;
   }
 }

@@ -7,6 +7,12 @@
   border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+@media (max-width: 1024px) {
+  .sidebar {
+    display: none;
+  }
+}
+
 .sidebar::-webkit-scrollbar {
   width: 4px;
 }
