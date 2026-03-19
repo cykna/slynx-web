@@ -1,14 +1,16 @@
 .header {
   display: grid;
   grid-template-areas: "logo actions nav";
-  grid-template-columns: 1fr max-content max-content;
+  grid-template-columns: max-content 1fr max-content;
   gap: 2rem;
   align-items: center;
+  width: 100%;
   max-width: 120rem;
   padding: .6rem 2rem;
   margin-inline: auto;
   background-color: transparent;
   color: var(--frame-foreground);
+  box-sizing: border-box;
 }
 
 @media (width >=1024px) {
@@ -16,16 +18,40 @@
     grid-template-areas: "logo nav actions";
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .actions {
+    justify-self: end;
+  }
+
+  .navArea {
+    justify-self: center;
+  }
 }
 
 @media (max-width: 498px) {
   .header {
     padding: .4rem 1rem;
+    gap: 1rem;
   }
 }
 
 .logoContainer {
   grid-area: logo;
+}
+
+.navArea {
+  grid-area: nav;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  justify-self: end;
+}
+
+@media (max-width: 640px) {
+  .navArea {
+    justify-content: flex-end;
+  }
 }
 
 .logoLink {
@@ -85,7 +111,7 @@
   grid-area: actions;
   display: flex;
   align-items: center;
-  justify-self: end;
+  justify-self: start;
   gap: 1rem;
 }
 
@@ -98,6 +124,33 @@
 @media (max-width: 598px) {
   .actions {
     gap: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .4rem 1rem;
+    gap: 0.5rem;
+    margin-inline: 0;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .logoContainer {
+    flex: 0 0 auto;
+  }
+
+  .navArea {
+    flex: 0 0 auto;
+    margin-left: auto;
+    justify-content: flex-end;
   }
 }
 
