@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import MainStyles from "./page.module.css";
-import Feature from "./components/feature/feature";
+import Feature from "../components/feature/feature";
 import { Icon } from "@iconify/react";
-import Cards from "./components/cards-container/cards-container";
-import WhySlynxContainer from "./components/slynxHeroSection/WhySlynxContainer";
-import FaqItem from "./components/faq-component/faq-component";
-import { LangCapabilities } from "./components/capabilities/lang-capabilities";
-import Testimonials from "./components/testimonial/testimonial";
+import Cards from "../components/cards-container/cards-container";
+import WhySlynxContainer from "../components/slynxHeroSection/WhySlynxContainer";
+import FaqItem from "../components/faq-component/faq-component";
+import { LangCapabilities } from "../components/capabilities/lang-capabilities";
+import Testimonials from "../components/testimonial/testimonial";
 import { useLang } from "./i18n/LangContext";
 
 export default function Home() {
@@ -20,9 +20,9 @@ export default function Home() {
         <h1>Slynx</h1>
         <h2>{t.hero.title}</h2>
         <div className={MainStyles.start_now}>
-          <Link href="/docs/get-started">
+          <Link href="/docs/get-started" className={MainStyles.start_now_link}>
             {t.hero.getStarted}
-            <Icon icon="material-symbols:arrow-forward" width="30" height="30" className={MainStyles.arrow_icon} />
+            <Icon icon="material-symbols:arrow-forward" className={MainStyles.arrow_icon} />
           </Link>
         </div>
       </div>
@@ -32,21 +32,19 @@ export default function Home() {
         <div>
           <Feature
             title={t.whatIs.performance.title}
-            icon={<Icon icon="material-symbols:speed" width="48" height="48" className={MainStyles.feature_icon} />}
+            icon={<Icon icon="material-symbols:speed" className={MainStyles.feature_icon} />}
           >
             {t.whatIs.performance.description}
           </Feature>
-
           <Feature
             title={t.whatIs.trust.title}
-            icon={<Icon icon="ant-design:safety-outlined" width="48" height="48" className={MainStyles.feature_icon} />}
+            icon={<Icon icon="ant-design:safety-outlined" className={MainStyles.feature_icon} />}
           >
             {t.whatIs.trust.description}
           </Feature>
-
           <Feature
             title={t.whatIs.safety.title}
-            icon={<Icon icon="material-symbols:security" width="48" height="48" className={MainStyles.feature_icon} />}
+            icon={<Icon icon="material-symbols:security" className={MainStyles.feature_icon} />}
           >
             {t.whatIs.safety.description}
           </Feature>
@@ -63,12 +61,16 @@ export default function Home() {
         capabilities={t.capabilities.items}
       />
 
-      <Testimonials title={t.testimonials.title} subtitle={t.testimonials.subtitle} testimonials={[{
-        author: 'Owner',
-        id: 0,
-        role: 'Owner',
-        text: "The project is ongoing and yet there's no testimonial"
-      }]} />
+      <Testimonials
+        title={t.testimonials.title}
+        subtitle={t.testimonials.subtitle}
+        testimonials={[{
+          author: 'Owner',
+          id: 0,
+          role: 'Owner',
+          text: "The project is ongoing and yet there's no testimonial"
+        }]}
+      />
 
       <div className={MainStyles.faq_container}>
         <h1 className={MainStyles.faq_title}>{t.faq.title}</h1>
