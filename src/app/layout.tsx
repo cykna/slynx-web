@@ -30,9 +30,14 @@ export default function RootLayout({
    * to enable consistent light/dark mode support.
    */
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.variable}>
-        <ThemeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <PageFrame header={Header()} footer={Footer()}>
             {children}
           </PageFrame>
