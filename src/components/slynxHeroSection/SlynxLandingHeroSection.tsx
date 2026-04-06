@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { cn } from "@/lib/utils";
-import { Button } from "../ui/button";
-import { ButtonGroup } from "../ui/button-group";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import SlynxPossibilities from "./SlynxPossibilities";
 
 /** Token types for syntax highlighting (Dracula theme) */
@@ -109,8 +107,6 @@ interface Badge {
   id: string;
   /** Display text for the badge */
   text: string;
-  /** Visual style variant - 'primary' for selected state, 'secondary' for unselected */
-  variant: "primary" | "secondary";
 }
 
 /**
@@ -125,20 +121,21 @@ interface WhySlynxSectionProps {
   description: string;
   /**
    * Array of badge objects to display as selection options.
-   * Each badge must have an id, text, and variant ('primary' or 'secondary').
-   * The first badge in the array will be selected by default.
+   * Each badge must have an id and text.
    *
    * @example
    * ```ts
    * badges={[
-   *   { id: 'simple', text: 'Simple', variant: 'primary' },
-   *   { id: 'performance', text: 'Performance', variant: 'secondary' }
+   *   { id: 'simple', text: 'Simple' },
+   *   { id: 'performance', text: 'Performance' }
    * ]}
    * ```
    */
   badges: Badge[];
-  /** Code snippet to be displayed with typing animation */
-  codeExample: string;
+  /** Currently selected badge id. */
+  activeTabId: string;
+  /** Code examples keyed by badge id. */
+  codeExamplesByBadgeId: Record<string, string>;
   /** File name shown in the code window header */
   fileName: string;
   /** Typing animation speed in milliseconds (lower = faster) */
@@ -146,7 +143,7 @@ interface WhySlynxSectionProps {
   /**
    * Callback function triggered when a badge is selected.
    * Receives the badge id as parameter.
-   * Use this to update the codeExample based on selected badge.
+   * Use this to update the active tab in the parent container.
    *
    * @example
    * ```ts
@@ -162,9 +159,8 @@ interface WhySlynxSectionProps {
  * A hero section component that displays a title, description, selectable badges,
  * and an animated code window with typing effect.
  *
- * **Important**: The badges array must contain objects with id, text, and variant properties.
- * The first badge will be auto-selected on mount. Use onBadgeSelect callback to handle
- * badge changes and update the codeExample accordingly.
+ * **Important**: The badges array must contain objects with id and text properties.
+ * Use onBadgeSelect callback to handle badge changes and update the selected tab accordingly.
  *
  * @example
  * ```tsx
@@ -184,12 +180,13 @@ interface WhySlynxSectionProps {
  *   brandName="Slynx"
  *   description="Experience a syntax that feels natural..."
  *   badges={[
- *     { id: 'simple', text: 'Simple', variant: 'primary' },
- *     { id: 'performance', text: 'Performance', variant: 'secondary' },
- *     { id: 'data-oriented', text: 'Data Oriented', variant: 'secondary' },
- *     { id: 'intuitive', text: 'Intuitive', variant: 'secondary' }
+ *     { id: 'simple', text: 'Simple' },
+ *     { id: 'performance', text: 'Performance' },
+ *     { id: 'data-oriented', text: 'Data Oriented' },
+ *     { id: 'intuitive', text: 'Intuitive' }
  *   ]}
- *   codeExample={featureCodeExamples[selectedFeature]}
+ *   activeTabId={selectedFeature}
+ *   codeExamplesByBadgeId={featureCodeExamples}
  *   fileName="MAIN.SX"
  *   typingSpeed={30}
  *   onBadgeSelect={(id) => setSelectedFeature(id as FeatureId)}
@@ -205,46 +202,32 @@ export function WhySlynxSection(props: WhySlynxSectionProps) {
     brandName,
     description,
     badges,
-    codeExample,
+    activeTabId,
+    codeExamplesByBadgeId,
     fileName,
     typingSpeed,
     onBadgeSelect,
   } = props;
 
   const [typedText, setTypedText] = useState("");
-  const [selectedBadges, setSelectedBadges] = useState<Set<string>>(
-    new Set([badges[0]?.id]),
-  );
+  const activeCodeExample = codeExamplesByBadgeId[activeTabId] ?? "";
 
   /**
    * Effect hook to animate the typing of code example
-   * Resets and restarts animation when codeExample or typingSpeed changes
+   * Resets and restarts animation when the active tab's code or typingSpeed changes
    */
   useEffect(() => {
     let currentIndex = 0;
     setTypedText("");
     const interval = setInterval(() => {
-      if (currentIndex <= codeExample.length) {
-        setTypedText(codeExample.slice(0, currentIndex));
+      if (currentIndex <= activeCodeExample.length) {
+        setTypedText(activeCodeExample.slice(0, currentIndex));
         currentIndex++;
       } else clearInterval(interval);
     }, typingSpeed);
 
     return () => clearInterval(interval);
-  }, [codeExample, typingSpeed]);
-
-  /**
-   * Handles badge click events
-   * Updates selected state and triggers callback if provided
-   *
-   * @param badgeId - The id of the clicked badge
-   */
-  function handleBadgeClick(badgeId: string) {
-    setSelectedBadges(new Set([badgeId]));
-    if (onBadgeSelect) {
-      onBadgeSelect(badgeId);
-    }
-  }
+  }, [activeCodeExample, typingSpeed]);
 
   const highlightedCode = useMemo(() => {
     const tokens = tokenize(typedText);
@@ -271,7 +254,16 @@ export function WhySlynxSection(props: WhySlynxSectionProps) {
 
   return (
     <div className="relative px-5 py-6 md:p-8 w-full h-screen flex items-center">
-      <div className="relative flex flex-row justify-between items-center z-10 w-full animate-in fade-in slide-in-from-bottom-6 duration-700">
+      <Tabs
+        value={activeTabId}
+        defaultValue={badges[0]?.id}
+        onValueChange={(value) => {
+          if (onBadgeSelect) {
+            onBadgeSelect(String(value));
+          }
+        }}
+        className="relative z-10 w-full items-center justify-between gap-0 data-horizontal:flex-row animate-in fade-in slide-in-from-bottom-6 duration-700"
+      >
         <div className="w-full">
           <h1 className="mb-6 font-heading text-[clamp(2.4rem,7vw,4rem)] leading-[1.1] font-bold tracking-[-0.03em] text-foreground sm:mb-4">
             {title}{" "}
@@ -284,37 +276,17 @@ export function WhySlynxSection(props: WhySlynxSectionProps) {
 
           <div className="flex flex-col gap-10">
             <div className="mb-8 flex flex-wrap gap-2 md:mb-12 md:gap-3">
-              <ButtonGroup className="w-fit gap-1 overflow-hidden rounded-full border border-border bg-linear-to-b from-card/90 to-card/60 p-1 shadow-sm shadow-black/25 backdrop-blur-md *:data-[slot=button]:rounded-full! *:data-[slot=button]:border-transparent [&>[data-slot=button]~[data-slot=button]]:rounded-l-full! [&>[data-slot]:not(:has(~[data-slot]))]:rounded-r-full!">
-                {badges.map((badge, index) => {
-                  const isSelected = selectedBadges.has(badge.id);
-                  const isLastBadge = index === badges.length - 1;
-
-                  return (
-                    <Button
-                      key={badge.id}
-                      variant="ghost"
-                      data-active={isSelected ? "true" : "false"}
-                      onClick={() => handleBadgeClick(badge.id)}
-                      style={
-                        isLastBadge
-                          ? {
-                              borderTopRightRadius: "9999px",
-                              borderBottomRightRadius: "9999px",
-                            }
-                          : undefined
-                      }
-                      className={cn(
-                        "h-auto px-5 py-2.5 font-heading text-sm font-medium transition-all duration-300 sm:px-7 sm:text-[1.1rem] hover:bg-primary-brand-color/20! hover:text-primary-brand-color! rounded-full!",
-                        isSelected
-                          ? "border-primary/45 bg-primary-brand-color/30 text-primary-brand-color ring-1 ring-inset ring-primary/50 shadow-lg shadow-primary/30"
-                          : "text-muted-foreground",
-                      )}
-                    >
-                      {badge.text}
-                    </Button>
-                  );
-                })}
-              </ButtonGroup>
+              <TabsList className="h-auto! group-data-horizontal/tabs:h-auto! w-fit gap-1 overflow-hidden rounded-full border border-border bg-linear-to-b from-card/90 to-card/60 p-1 shadow-sm shadow-black/25 backdrop-blur-md">
+                {badges.map((badge) => (
+                  <TabsTrigger
+                    key={badge.id}
+                    value={badge.id}
+                    className="h-auto! flex-none! rounded-full! border-transparent! px-5 py-2.5 font-heading text-sm font-medium text-muted-foreground transition-all duration-300 sm:px-7 sm:text-[1.1rem] hover:bg-primary-brand-color/20! hover:text-primary-brand-color! data-active:border-transparent! data-active:bg-primary-brand-color/30! data-active:text-primary-brand-color!"
+                  >
+                    {badge.text}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
             </div>
 
             <SlynxPossibilities />
@@ -333,16 +305,22 @@ export function WhySlynxSection(props: WhySlynxSectionProps) {
             </div>
           </div>
 
-          <div className="relative min-h-35 bg-popover p-4 sm:min-h-40 md:min-h-50 md:p-6">
-            <pre className="relative m-0 font-mono text-xs leading-[1.7] text-foreground md:text-sm">
-              <code className="block whitespace-pre-wrap wrap-break-word font-mono!">
-                {highlightedCode}
-                <span className="ml-0.5 inline-block h-[1em] w-[0.5em] animate-pulse align-text-bottom bg-foreground"></span>
-              </code>
-            </pre>
-          </div>
+          {badges.map((badge) => (
+            <TabsContent
+              key={badge.id}
+              value={badge.id}
+              className="relative min-h-35 bg-popover p-4 sm:min-h-40 md:min-h-50 md:p-6"
+            >
+              <pre className="relative m-0 font-mono text-xs leading-[1.7] text-foreground md:text-sm">
+                <code className="block whitespace-pre-wrap wrap-break-word font-mono!">
+                  {highlightedCode}
+                  <span className="ml-0.5 inline-block h-[1em] w-[0.5em] animate-pulse align-text-bottom bg-foreground"></span>
+                </code>
+              </pre>
+            </TabsContent>
+          ))}
         </div>
-      </div>
+      </Tabs>
     </div>
   );
 }
