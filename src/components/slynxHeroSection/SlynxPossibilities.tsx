@@ -1,15 +1,11 @@
+import { TerminalSquare } from "lucide-react";
 import {
   Item,
-  ItemActions,
   ItemContent,
   ItemDescription,
   ItemGroup,
-  ItemMedia,
-  ItemSeparator,
   ItemTitle,
 } from "../ui/item";
-import { Button } from "../ui/button";
-import { TerminalSquare } from "lucide-react";
 
 export default function SlynxPossibilities() {
   const POSSIBILITES = [

@@ -288,9 +288,9 @@ export function WhySlynxSection(props: WhySlynxSectionProps) {
                 ))}
               </TabsList>
             </div>
-
-            <SlynxPossibilities />
           </div>
+
+          <SlynxPossibilities />
         </div>
 
         <div className="overflow-hidden w-full rounded-2xl border border-border bg-card animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300 fill-mode-backwards">
